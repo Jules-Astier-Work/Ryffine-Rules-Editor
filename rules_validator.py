@@ -313,8 +313,8 @@ if st.session_state["validation_results"]:
     # Export comments section
     st.subheader("💾 Export Comments")
     if st.button("📥 Export All Comments"):
-        report_data = []
-        comments_data = []
+        report_data = [results["report_data"]["content"]]
+        comments_data = ["CONTENT VALIDATED"]
         
         # Collect all comments
         if "prettified_comments" in st.session_state:
