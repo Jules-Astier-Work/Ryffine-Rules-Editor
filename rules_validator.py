@@ -11,28 +11,163 @@ st.set_page_config(
     layout="wide"
 )
 
-def copy_text_backend(text):
-    try:
-        pyperclip.copy(text)
-        return True
-    except Exception as e:
-        print(e)
-        return e
-    
-def copy_to_clipboard(text):
-    # JavaScript to copy to clipboard
-    copy_js = f"""
-    <script>
-    function copyToClipboard() {{
-        navigator.clipboard.writeText(`{text}`).then(function() {{
-            alert('Copied to clipboard!');
-        }}, function(err) {{
-            console.error('Could not copy text: ', err);
-        }});
-    }}
-    </script>
-    <button onclick="copyToClipboard()">📑Copy to Clipboard</button>
+def copy_to_clipboard(text, button_text="📑Copy to Clipboard", key=None):
     """
+    Create a copy-to-clipboard button that matches Streamlit's default button styling
+    
+    Args:
+        text (str): Text to copy to clipboard
+        button_text (str): Text to display on the button
+        key (str): Unique key for the component (useful if using multiple buttons)
+    """
+    # Escape text for JavaScript
+    escaped_text = text.replace('`', '\\`').replace('\\', '\\\\').replace('\n', '\\n').replace('\r', '\\r')
+    
+    # Generate unique ID for this button
+    button_id = f"copy_btn_{key}" if key else "copy_btn"
+    
+    copy_js = f"""
+    <div>
+        <style>
+            .stCopyButton {{
+                background-color: rgb(255, 255, 255);
+                border: 1px solid rgb(204, 204, 204);
+                border-radius: 0.5rem;
+                box-sizing: border-box;
+                color: rgb(38, 39, 48);
+                cursor: pointer;
+                display: inline-block;
+                font-family: "Source Sans Pro", sans-serif;
+                font-size: 14px;
+                font-weight: 400;
+                height: 3rem;
+                line-height: 1.6;
+                margin: 0px;
+                padding: 0.375rem 0.75rem;
+                text-align: center;
+                text-decoration: none;
+                transition: all 200ms ease 0s;
+                user-select: none;
+                vertical-align: middle;
+                white-space: nowrap;
+                width: auto;
+                min-width: auto;
+            }}
+            
+            .stCopyButton:hover {{
+                border-color: rgb(255, 75, 75);
+                color: rgb(255, 75, 75);
+            }}
+            
+            .stCopyButton:focus {{
+                border-color: rgb(255, 75, 75);
+                box-shadow: rgb(255, 75, 75) 0px 0px 0px 0.2rem;
+                color: rgb(255, 75, 75);
+                outline: none;
+            }}
+            
+            .stCopyButton:active {{
+                background-color: rgb(245, 245, 245);
+                border-color: rgb(204, 204, 204);
+                color: rgb(38, 39, 48);
+            }}
+            
+            /* Dark mode support */
+            @media (prefers-color-scheme: dark) {{
+                .stCopyButton {{
+                    background-color: rgb(38, 39, 48);
+                    border-color: rgb(58, 58, 58);
+                    color: rgb(250, 250, 250);
+                }}
+                
+                .stCopyButton:active {{
+                    background-color: rgb(58, 58, 58);
+                    border-color: rgb(58, 58, 58);
+                }}
+            }}
+            
+            .success-message {{
+                color: rgb(9, 171, 59);
+                font-size: 14px;
+                margin-top: 0.5rem;
+                display: none;
+            }}
+            
+            .error-message {{
+                color: rgb(255, 43, 43);
+                font-size: 14px;
+                margin-top: 0.5rem;
+                display: none;
+            }}
+        </style>
+        
+        <button class="stCopyButton" onclick="copyToClipboard_{button_id}()" id="{button_id}">
+            {button_text}
+        </button>
+        <div id="success_{button_id}" class="success-message">✅ Copied to clipboard!</div>
+        <div id="error_{button_id}" class="error-message">❌ Failed to copy. Please copy manually.</div>
+        
+        <script>
+            function copyToClipboard_{button_id}() {{
+                const textToCopy = `{escaped_text}`;
+                
+                if (navigator.clipboard && navigator.clipboard.writeText) {{
+                    navigator.clipboard.writeText(textToCopy).then(function() {{
+                        showMessage_{button_id}('success');
+                    }}, function(err) {{
+                        console.error('Could not copy text: ', err);
+                        fallbackCopyTextToClipboard_{button_id}(textToCopy);
+                    }});
+                }} else {{
+                    fallbackCopyTextToClipboard_{button_id}(textToCopy);
+                }}
+            }}
+            
+            function fallbackCopyTextToClipboard_{button_id}(text) {{
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                
+                // Avoid scrolling to bottom
+                textArea.style.top = "0";
+                textArea.style.left = "0";
+                textArea.style.position = "fixed";
+                
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                
+                try {{
+                    const successful = document.execCommand('copy');
+                    if (successful) {{
+                        showMessage_{button_id}('success');
+                    }} else {{
+                        showMessage_{button_id}('error');
+                    }}
+                }} catch (err) {{
+                    console.error('Fallback: Could not copy text: ', err);
+                    showMessage_{button_id}('error');
+                }}
+                
+                document.body.removeChild(textArea);
+            }}
+            
+            function showMessage_{button_id}(type) {{
+                // Hide all messages first
+                document.getElementById('success_{button_id}').style.display = 'none';
+                document.getElementById('error_{button_id}').style.display = 'none';
+                
+                // Show the appropriate message
+                document.getElementById(type + '_{button_id}').style.display = 'block';
+                
+                // Hide message after 3 seconds
+                setTimeout(function() {{
+                    document.getElementById(type + '_{button_id}').style.display = 'none';
+                }}, 3000);
+            }}
+        </script>
+    </div>
+    """
+    
     components.html(copy_js, height=100)
 
 def display_comment_box(key: str, label: str = "Comments"):
