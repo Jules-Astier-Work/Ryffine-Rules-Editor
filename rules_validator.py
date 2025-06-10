@@ -16,7 +16,7 @@ def copy_text_backend(text):
         return True
     except Exception as e:
         print(e)
-        return False
+        return e
 
 def display_comment_box(key: str, label: str = "Comments"):
     """Display a comment text area"""
@@ -87,10 +87,11 @@ if st.session_state["validation_results"]:
     st.header("📊 Validation Results")
     # Copy Report
     if st.button("📑 Copy Report"):
-        if copy_text_backend(results["llm_report"]):
+        copied = copy_text_backend(results["llm_report"])
+        if copied == True:
             st.success("Copied!")
         else:
-            st.error("Failed to copy")
+            st.error(copied)
     
     # Metrics row
     col1, col2, col3 = st.columns(3)
