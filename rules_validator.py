@@ -104,8 +104,6 @@ def copy_to_clipboard(text, button_text="📑Copy to Clipboard", key=None):
         <button class="stCopyButton" onclick="copyToClipboard_{button_id}()" id="{button_id}">
             {button_text}
         </button>
-        <div id="success_{button_id}" class="success-message">✅ Copied to clipboard!</div>
-        <div id="error_{button_id}" class="error-message">❌ Failed to copy. Please copy manually.</div>
         
         <script>
             function copyToClipboard_{button_id}() {{
@@ -114,6 +112,7 @@ def copy_to_clipboard(text, button_text="📑Copy to Clipboard", key=None):
                 if (navigator.clipboard && navigator.clipboard.writeText) {{
                     navigator.clipboard.writeText(textToCopy).then(function() {{
                         showMessage_{button_id}('success');
+                        alert('Copied to clipboard!');
                     }}, function(err) {{
                         console.error('Could not copy text: ', err);
                         fallbackCopyTextToClipboard_{button_id}(textToCopy);
