@@ -3,6 +3,7 @@ import streamlit as st
 
 from validators import RyffineDITAValidator
 import pyperclip
+import streamlit.components.v1 as components
 
 st.set_page_config(
     page_title="RyffineDITA Validator",
@@ -17,6 +18,22 @@ def copy_text_backend(text):
     except Exception as e:
         print(e)
         return e
+    
+def copy_to_clipboard(text):
+    # JavaScript to copy to clipboard
+    copy_js = f"""
+    <script>
+    function copyToClipboard() {{
+        navigator.clipboard.writeText(`{text}`).then(function() {{
+            alert('Copied to clipboard!');
+        }}, function(err) {{
+            console.error('Could not copy text: ', err);
+        }});
+    }}
+    </script>
+    <button onclick="copyToClipboard()">📑Copy to Clipboard</button>
+    """
+    components.html(copy_js, height=100)
 
 def display_comment_box(key: str, label: str = "Comments"):
     """Display a comment text area"""
@@ -86,12 +103,13 @@ if st.session_state["validation_results"]:
     
     st.header("📊 Validation Results")
     # Copy Report
-    if st.button("📑 Copy Report"):
-        copied = copy_text_backend(results["llm_report"])
-        if copied == True:
-            st.success("Copied!")
-        else:
-            st.error(copied)
+    copy_to_clipboard(results["llm_report"])
+    # if st.button("📑 Copy Report"):
+    #     copied = copy_text_backend(results["llm_report"])
+    #     if copied == True:
+    #         st.success("Copied!")
+    #     else:
+    #         st.error(copied)
     
     # Metrics row
     col1, col2, col3 = st.columns(3)
