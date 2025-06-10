@@ -14,7 +14,8 @@ def copy_text_backend(text):
     try:
         pyperclip.copy(text)
         return True
-    except:
+    except Exception as e:
+        print(e)
         return False
 
 def display_comment_box(key: str, label: str = "Comments"):
