@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r8_valid">
+  <title>Table Placement (R8)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <p>Table directly in refbody:</p>
+    <simpletable id="st_in_refbody_r8">
+      <strow><stentry>Cell 1</stentry></strow>
+    </simpletable>
+    <section id="sec_with_table_r8">
+      <title>Section with Table</title>
+      <p>Table within a section:</p>
+      <table id="cals_in_section_r8"><title>CALS Table</title><tgroup cols="1"><colspec colname="c1"/><tbody_r8><row><entry>Data</entry></row></tbody_r8></tgroup></table>
+    </section>
+    <p>R8 is satisfied by demonstrating allowed placements.</p>
+  </refbody>
+</reference>

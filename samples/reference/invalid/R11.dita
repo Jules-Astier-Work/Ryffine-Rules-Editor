@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r11_invalid">
+  <title>Refsyn Misplaced (R11)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog>
+    <author>Test</author>
+    <!-- <refsyn> is not defined in the provided RNG. Assuming for this rule it's a block element. -->
+    <refsyn id="syn_bad_location_r11">
+      <syntaxdiagram>
+        <kwd>WRONG_LOCATION</kwd>
+      </syntaxdiagram>
+    </refsyn>
+  </prolog>
+  <refbody>
+    <p>The refsyn element is in prolog, violating R11 (should be in refbody).</p>
+  </refbody>
+</reference>

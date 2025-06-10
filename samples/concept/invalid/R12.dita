@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r12_inv">
+  <title>R12 Invalid Paragraph Handling</title>
+  <shortdesc>Table entry with direct text not in a p tag.</shortdesc>
+  <prolog/>
+  <conbody>
+    <table>
+      <title>Sample Table</title>
+      <tgroup cols="1">
+        <colspec colname="c1" colnum="1"/>
+        <tbody>
+          <row>
+            <entry>This text forms a paragraph but is not enclosed in <p> tags.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </conbody>
+</concept>

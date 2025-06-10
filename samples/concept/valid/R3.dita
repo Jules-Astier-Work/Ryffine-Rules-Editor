@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r3_val">
+  <title>R3 Valid Title</title>
+  <shortdesc>This concept correctly includes a shortdesc element after the title.</shortdesc>
+  <prolog/>
+  <conbody>
+    <p>Content for a concept with title and shortdesc.</p>
+  </conbody>
+</concept>

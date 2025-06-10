@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<troubleshooting>
+  <title>Sample Troubleshooting Title</title>
+  <prolog/>
+  <troublebody>
+    <troubleSolution>
+      <remedy>
+        <title>Remedy Title</title>
+        <responsibleParty>Field Technician</responsibleParty>
+        <steps><step><cmd>Replace the unit.</cmd></step></steps>
+      </remedy>
+    </troubleSolution>
+  </troublebody>
+</troubleshooting>

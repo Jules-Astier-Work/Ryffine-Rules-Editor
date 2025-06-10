@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<troubleshooting>
+  <title>Sample Troubleshooting Title</title>
+  <prolog/>
+  <troublebody>
+    <condition><p>This is the condition.</p></condition>
+    <troubleSolution>
+      <cause><title>C</title><p>Cause description.</p></cause>
+      <remedy><title>R</title><steps-informal><p>Perform this action.</p></steps-informal></remedy>
+    </troubleSolution>
+  </troublebody>
+</troubleshooting>

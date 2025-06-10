@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r5_valid">
+  <title>Correct Title</title>
+  <shortdesc>Correctly placed shortdesc.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <p><prolog> is followed by <refbody> (R5 satisfied).</p>
+  </refbody>
+</reference>

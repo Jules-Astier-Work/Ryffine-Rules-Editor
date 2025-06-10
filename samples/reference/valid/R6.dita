@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r6_valid">
+  <title>Valid Order in Refbody (R6)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <p>This loose paragraph appears before the section.</p>
+    <ul><li><p>Loose list item before section.</p></li></ul>
+    <section id="sec1_r6_valid">
+      <title>Section One</title>
+      <p>Content within section. (R6 satisfied)</p>
+    </section>
+  </refbody>
+</reference>

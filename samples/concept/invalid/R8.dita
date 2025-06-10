@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r8_inv">
+  <title>R8 Invalid Section</title>
+  <shortdesc>Section without a title.</shortdesc>
+  <prolog/>
+  <conbody>
+    <section id="s1">
+      <p>This section is missing its required title element.</p>
+    </section>
+  </conbody>
+</concept>

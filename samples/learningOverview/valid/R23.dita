@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<learningOverview id="lo1" xml:lang="en">
+  <title>Main Learning Overview Title</title>
+  <prolog/>
+  <learningOverviewbody>
+    <lcIntro><title>Intro Title</title><p>Intro text.</p></lcIntro>
+    <lcAudience><title>Audience Title</title>Audience text.</lcAudience>
+    <lcDuration><title>Duration Title</title><lcTime time="1hr">1 hour</lcTime></lcDuration>
+    <lcObjectives><title>Objectives Title</title><lcObjectivesGroup><lcObjective>Obj</lcObjective></lcObjectivesGroup></lcObjectives>
+    <lcResources><title>Resources Title</title><p>Resource text.</p></lcResources>
+    <section id="instructor_notes">
+      <title>Instructor Notes</title>
+      <p>Instructor notes content.</p>
+    </section>
+    <section id="additional_section_1">
+      <title>Additional Section One</title>
+      <p>Content for the first additional section.</p>
+    </section>
+    <section id="additional_section_2">
+      <title>Additional Section Two</title>
+      <p>Content for the second additional section.</p>
+    </section>
+  </learningOverviewbody>
+</learningOverview>

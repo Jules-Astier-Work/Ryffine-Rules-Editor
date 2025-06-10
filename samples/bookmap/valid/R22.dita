@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmap>
+  <booktitle><booklibrary>L</booklibrary><mainbooktitle>T</mainbooktitle></booktitle>
+  <bookmeta/>
+  <frontmatter/>
+  <chapter href="c.dita"><topicmeta><navtitle>C</navtitle></topicmeta></chapter>
+  <appendix href="a.dita"><topicmeta><navtitle>A</navtitle></topicmeta></appendix>
+  <backmatter/>
+</bookmap>

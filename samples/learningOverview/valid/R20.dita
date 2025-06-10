@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<learningOverview id="lo1" xml:lang="en">
+  <title>Main Learning Overview Title</title>
+  <prolog/>
+  <learningOverviewbody>
+    <lcIntro><title>Intro Title</title><p>Intro text.</p></lcIntro>
+    <lcAudience><title>Audience Title</title>Audience text.</lcAudience>
+    <lcDuration><title>Duration Title</title><lcTime time="1hr">1 hour</lcTime></lcDuration>
+    <lcObjectives><title>Objectives Title</title><lcObjectivesGroup><lcObjective>Obj</lcObjective></lcObjectivesGroup></lcObjectives>
+    <lcResources><title>Resources Title</title><p>Resource text.</p></lcResources>
+  </learningOverviewbody>
+</learningOverview>

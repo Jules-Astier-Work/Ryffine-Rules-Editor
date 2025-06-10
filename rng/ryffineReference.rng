@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <include href="../common/ryffineCommonElements.rng"/>
+  
+  <start>
+    <ref name="reference"/>
+  </start>
+  
+  <define name="reference">
+    <element name="reference">
+      <ref name="id-atts"/>
+      <ref name="lang-atts"/>
+      <ref name="title"/>
+      <ref name="shortdesc"/>
+      <ref name="prolog"/>
+      <ref name="refbody"/>
+    </element>
+  </define>
+  
+  <define name="refbody">
+    <element name="refbody">
+      <oneOrMore>
+        <choice>
+          <ref name="table"/>
+          <ref name="simpletable"/>
+          <ref name="section"/>
+          <ref name="example"/>
+          <ref name="p"/>
+          <ref name="ul"/>
+          <ref name="ol"/>
+          <ref name="dl"/>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  
+</grammar>

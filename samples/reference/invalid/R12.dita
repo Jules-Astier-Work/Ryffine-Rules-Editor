@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r12_invalid">
+  <title>Refsyn Content Invalid (R12)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <!-- <refsyn> and <syntaxdiagram> are not defined in the provided RNG. -->
+    <refsyn id="syn_no_diagram_r12">
+      <p>This refsyn is missing its syntaxdiagram element, violating R12.</p>
+    </refsyn>
+    <refsyn id="syn_too_many_diagrams_r12">
+        <syntaxdiagram><kwd>DIAG1</kwd></syntaxdiagram>
+        <syntaxdiagram><kwd>DIAG2</kwd></syntaxdiagram> <!-- Assuming only one allowed by R12 -->
+    </refsyn>
+  </refbody>
+</reference>

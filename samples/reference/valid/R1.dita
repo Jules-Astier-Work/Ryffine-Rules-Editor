@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r1_valid">
+  <title>Correct Root Element</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <p>This document correctly uses <reference> as the root element (R1 satisfied).</p>
+  </refbody>
+</reference>

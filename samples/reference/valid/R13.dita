@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r13_valid">
+  <title>Syntaxdiagram Valid Content (R13)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <!-- Syntax elements (synblk, groupseq, kwd, etc.) are not defined in provided RNG. -->
+    <refsyn id="syn_valid_diag_content_r13">
+      <syntaxdiagram>
+        <synblk>
+          <kwd>SELECT</kwd>
+          <groupchoice>
+            <kwd>ALL</kwd>
+            <var>column_name</var>
+          </groupchoice>
+          <kwd>FROM</kwd>
+          <var>table_name</var>
+        </synblk>
+      </syntaxdiagram>
+    </refsyn>
+    <p>R13 is satisfied with appropriate syntax elements.</p>
+  </refbody>
+</reference>

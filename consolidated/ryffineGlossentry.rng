@@ -1,0 +1,528 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <!-- Consolidated RNG generated from ryffineGlossentry.rng and 3 dependencies -->
+  <!-- Source files: ryffineCommonAttributes.rng, ryffineCommonElements.rng, ryffineMetadata.rng, ryffineGlossentry.rng -->
+  <start>
+    <ref name="glossentry"/>
+  </start>
+  <define name="alt">
+    <element name="alt">
+      <text/>
+    </element>
+  </define>
+  <define name="b">
+    <element name="b">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline.noxref"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="cite">
+    <element name="cite">
+      <text/>
+    </element>
+  </define>
+  <define name="codeblock">
+    <element name="codeblock">
+      <text/>
+    </element>
+  </define>
+  <define name="codeph">
+    <element name="codeph">
+      <text/>
+    </element>
+  </define>
+  <define name="colspec">
+    <element name="colspec">
+      <attribute name="colname">
+        <data type="string"/>
+      </attribute>
+      <attribute name="colnum">
+        <data type="positiveInteger"/>
+      </attribute>
+      <optional>
+        <attribute name="colwidth">
+          <data type="string"/>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+  <define name="common.block">
+    <choice>
+      <ref name="ul"/>
+      <ref name="ol"/>
+      <ref name="note"/>
+      <ref name="fig"/>
+      <ref name="table"/>
+      <ref name="dl"/>
+      <ref name="codeblock"/>
+    </choice>
+  </define>
+  <define name="common.inline">
+    <choice>
+      <ref name="xref"/>
+      <ref name="common.inline.noxref"/>
+    </choice>
+  </define>
+  <define name="common.inline.noxref">
+    <choice>
+      <ref name="uicontrol"/>
+      <ref name="filepath"/>
+      <ref name="menucascade"/>
+      <ref name="wintitle"/>
+      <ref name="codeph"/>
+      <ref name="varname"/>
+      <ref name="b"/>
+      <ref name="i"/>
+      <ref name="cite"/>
+      <ref name="term"/>
+      <ref name="ph"/>
+    </choice>
+  </define>
+  <define name="dd">
+    <element name="dd">
+      <mixed>
+        <zeroOrMore>
+          <choice>
+            <ref name="common.inline"/>
+            <ref name="p"/>
+          </choice>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="desc">
+    <element name="desc">
+      <!-- Allows <desc> to be empty, or contain one or more <p> elements. -->
+      <!-- No direct mixed content. -->
+      <zeroOrMore>
+        <ref name="p"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="dl">
+    <element name="dl">
+      <ref name="id-atts"/>
+      <oneOrMore>
+        <ref name="dlentry"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="dlentry">
+    <element name="dlentry">
+      <oneOrMore>
+        <ref name="dt"/>
+      </oneOrMore>
+      <oneOrMore>
+        <ref name="dd"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="dt">
+    <element name="dt">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="entry">
+    <element name="entry">
+      <optional>
+        <attribute name="morerows">
+          <data type="nonNegativeInteger"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="namest">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="nameend">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <mixed>
+        <zeroOrMore>
+          <choice>
+            <ref name="common.inline"/>
+            <ref name="p"/>
+            <ref name="ul"/>
+            <ref name="ol"/>
+          </choice>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="fig">
+    <element name="fig">
+      <ref name="id-atts"/>
+      <optional>
+        <ref name="title"/>
+      </optional>
+      <optional>
+        <ref name="desc"/>
+      </optional>
+      <ref name="image"/>
+    </element>
+  </define>
+  <define name="filepath">
+    <element name="filepath">
+      <text/>
+    </element>
+  </define>
+  <define name="glossAbbreviation">
+    <element name="glossAbbreviation">
+      <text/>
+    </element>
+  </define>
+  <define name="glossAcronym">
+    <element name="glossAcronym">
+      <text/>
+    </element>
+  </define>
+  <define name="glossAlt">
+    <element name="glossAlt">
+      <choice>
+        <group>
+          <ref name="glossAcronym"/>
+          <optional>
+            <ref name="glossAbbreviation"/>
+          </optional>
+        </group>
+        <ref name="glossAbbreviation"/>
+      </choice>
+    </element>
+  </define>
+  <define name="glossBody">
+    <element name="glossBody">
+      <optional>
+        <ref name="glossStatus"/>
+      </optional>
+      <optional>
+        <ref name="glossProperty"/>
+      </optional>
+      <choice>
+        <group> <!-- Case: Acronym/Abbreviation is present (via glossAlt) -->
+          <ref name="glossSurfaceForm"/>
+          <ref name="glossAlt"/>
+        </group>
+        <optional> <!-- Case: Acronym/Abbreviation is NOT present, but glossSurfaceForm might be -->
+          <ref name="glossSurfaceForm"/>
+        </optional>
+        <empty/> <!-- Case: Neither glossSurfaceForm nor glossAlt are present in this position -->
+      </choice>
+      <optional>
+        <ref name="glossUsage"/>
+      </optional>
+      <optional>
+        <ref name="glossScopeNote"/>
+      </optional>
+      <optional>
+        <ref name="glossSymbol"/>
+      </optional>
+      <!-- glossAlt and glossSurfaceForm are handled in the choice structure above -->
+    </element>
+  </define>
+  <define name="glossProperty">
+    <element name="glossProperty">
+      <text/>
+    </element>
+  </define>
+  <define name="glossScopeNote">
+    <element name="glossScopeNote">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="glossStatus">
+    <element name="glossStatus">
+      <attribute name="value">
+        <choice>
+          <value>active</value>
+          <value>deprecated</value>
+          <value>removed</value>
+        </choice>
+      </attribute>
+    </element>
+  </define>
+  <define name="glossSurfaceForm">
+    <element name="glossSurfaceForm">
+      <text/>
+    </element>
+  </define>
+  <define name="glossSymbol">
+    <element name="glossSymbol">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+    </element>
+  </define>
+  <define name="glossUsage">
+    <element name="glossUsage">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="glossdef">
+    <element name="glossdef">
+      <oneOrMore>
+        <ref name="p"/> <!-- Assumes 'p' from common elements is suitable -->
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="glossentry">
+    <element name="glossentry">
+      <ref name="id-atts"/>
+      <ref name="lang-atts"/>
+      <ref name="glossterm"/>
+      <ref name="glossdef"/>
+      <optional>
+        <ref name="glossBody"/>
+      </optional>
+    </element>
+  </define>
+  <define name="glossterm">
+    <element name="glossterm">
+      <text/>
+    </element>
+  </define>
+  <define name="i">
+    <element name="i">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline.noxref"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="id-atts">
+    <optional>
+      <attribute name="id">
+        <data type="ID"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="image">
+    <element name="image">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+      <optional>
+        <ref name="alt"/>
+      </optional>
+    </element>
+  </define>
+  <define name="lang-atts">
+    <optional>
+      <attribute name="xml:lang">
+        <data type="language"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="li">
+    <element name="li">
+      <oneOrMore>
+        <choice>
+          <ref name="p"/>
+          <ref name="ul"/>
+          <ref name="ol"/>
+          <ref name="note"/>
+          <!-- Other block elements allowed in li -->
+          <!-- common.inline could be added if you want inline elements outside of a p,
+              but typically paragraph text goes in a p -->
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="menucascade">
+    <element name="menucascade">
+      <oneOrMore>
+        <ref name="uicontrol"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="note">
+    <element name="note">
+      <optional>
+        <attribute name="type">
+          <choice>
+            <value>note</value>
+            <value>caution</value>
+            <value>warning</value>
+            <value>tip</value>
+            <value>important</value>
+          </choice>
+        </attribute>
+      </optional>
+      <oneOrMore> <!-- Ensures <note> has content, and it must be <p> -->
+        <ref name="p"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="ol">
+    <element name="ol">
+      <ref name="id-atts"/>
+      <oneOrMore>
+        <ref name="li"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="p">
+    <element name="p">
+      <mixed>
+        <zeroOrMore>
+          <choice>
+            <ref name="common.inline"/>
+            <ref name="common.block"/>
+          </choice>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="ph">
+    <element name="ph">
+      <ref name="id-atts"/>
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="row">
+    <element name="row">
+      <oneOrMore>
+        <ref name="entry"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="table">
+    <element name="table">
+      <ref name="id-atts"/>
+      <optional>
+        <ref name="title"/>
+      </optional>
+      <optional>
+        <ref name="desc"/>
+      </optional>
+      <ref name="tgroup"/>
+    </element>
+  </define>
+  <define name="tbody">
+    <element name="tbody">
+      <oneOrMore>
+        <ref name="row"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="term">
+    <element name="term">
+      <optional>
+        <attribute name="keyref">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <text/>
+    </element>
+  </define>
+  <define name="tgroup">
+    <element name="tgroup">
+      <attribute name="cols">
+        <data type="positiveInteger"/>
+      </attribute>
+      <oneOrMore>
+        <ref name="colspec"/>
+      </oneOrMore>
+      <optional>
+        <ref name="thead"/>
+      </optional>
+      <ref name="tbody"/>
+    </element>
+  </define>
+  <define name="thead">
+    <element name="thead">
+      <oneOrMore>
+        <ref name="row"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="title">
+    <element name="title">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="uicontrol">
+    <element name="uicontrol">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline.noxref"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="ul">
+    <element name="ul">
+      <ref name="id-atts"/>
+      <oneOrMore>
+        <ref name="li"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="varname">
+    <element name="varname">
+      <text/>
+    </element>
+  </define>
+  <define name="wintitle">
+    <element name="wintitle">
+      <text/>
+    </element>
+  </define>
+  <define name="xref">
+    <element name="xref">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+      <optional>
+        <attribute name="type">
+          <choice>
+            <value>fig</value>
+            <value>table</value>
+            <value>li</value>
+            <value>fn</value>
+            <value>section</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="scope">
+          <choice>
+            <value>local</value>
+            <value>external</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="format">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <text/>
+    </element>
+  </define>
+</grammar>

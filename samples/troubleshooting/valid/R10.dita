@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<troubleshooting>
+  <title>Sample Troubleshooting Title</title>
+  <prolog/>
+  <troublebody>
+    <troubleSolution>
+      <remedy>
+        <title>Diagnostic Steps</title>
+        <steps><step><cmd>Check power supply.</cmd></step></steps>
+      </remedy>
+    </troubleSolution>
+  </troublebody>
+</troubleshooting>

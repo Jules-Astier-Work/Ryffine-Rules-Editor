@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<troubleshooting>
+  <title>Sample Troubleshooting Title</title>
+  <prolog/>
+  <troublebody>
+    <condition><p>The system shows an error message.</p></condition>
+    <troubleSolution>
+      <cause><title>Probable Cause</title><p>A configuration file is corrupted.</p></cause>
+      <remedy>
+        <title>Solution Steps</title>
+        <steps>
+          <step><cmd>Restore the configuration file from backup.</cmd>
+            <info><p>Ensure the backup is recent.</p></info>
+          </step>
+        </steps>
+      </remedy>
+    </troubleSolution>
+  </troublebody>
+</troubleshooting>

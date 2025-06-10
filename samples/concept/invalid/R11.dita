@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r11_inv">
+  <title>R11 Invalid Sequence</title>
+  <shortdesc>Example not followed by section/example when not last.</shortdesc>
+  <prolog/>
+  <conbody>
+    <example>
+      <title>First Example</title>
+      <p>Content of first example.</p>
+    </example>
+    <p>A loose paragraph interrupting the structural flow.</p>
+    <section id="s1">
+      <title>A Section</title>
+      <p>This section makes the preceding example not the last structural element.</p>
+    </section>
+  </conbody>
+</concept>

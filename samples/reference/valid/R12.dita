@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r12_valid">
+  <title>Refsyn Content Valid (R12)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <!-- <refsyn> and <syntaxdiagram> are not defined in the provided RNG. -->
+    <refsyn id="syn_correct_content_r12">
+      <syntaxdiagram>
+        <kwd>VALID_COMMAND</kwd>
+        <var>parameter</var>
+      </syntaxdiagram>
+    </refsyn>
+    <p>R12 is satisfied as <refsyn> contains one <syntaxdiagram>.</p>
+  </refbody>
+</reference>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <include href="../common/ryffineCommonElements.rng"/>
+  
+  <start>
+    <ref name="map"/>
+  </start>
+  
+  <define name="map">
+    <element name="map">
+      <ref name="id-atts"/>
+      <ref name="lang-atts"/>
+      <optional>
+        <attribute name="title">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <ref name="title"/>
+      <optional>
+        <ref name="topicmeta"/>
+      </optional>
+      <!-- R4: Enforce one initial topicref -->
+      <ref name="topicref"/>
+      <!-- R5: Then allow zeroOrMore of the choices -->
+      <zeroOrMore>
+        <choice>
+          <ref name="topicref"/>
+          <ref name="topicgroup"/>
+          <ref name="mapref"/>
+          <!-- Add glossref here once defined for R9 -->
+          <ref name="glossref"/>
+        </choice>
+      </zeroOrMore>
+      <optional>
+        <ref name="reltable"/>
+      </optional>
+    </element>
+  </define>
+  
+  <define name="topicmeta">
+    <element name="topicmeta">
+      <zeroOrMore>
+        <choice>
+          <ref name="navtitle"/>
+          <ref name="shortdesc"/>
+          <ref name="audience"/>
+          <ref name="category"/>
+          <ref name="keywords"/>
+          <ref name="prodinfo"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  
+  <define name="navtitle">
+    <element name="navtitle">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="topicref">
+    <element name="topicref">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+      <!-- <optional> -->
+        <attribute name="format">
+          <data type="string"/>
+        </attribute>
+      <!-- </optional> -->
+      <optional>
+        <attribute name="type">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="scope">
+          <choice>
+            <value>local</value>
+            <value>external</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="processing-role">
+          <choice>
+            <value>normal</value>
+            <value>resource-only</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="toc">
+          <choice>
+            <value>yes</value>
+            <value>no</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="print">
+          <choice>
+            <value>yes</value>
+            <value>no</value>
+          </choice>
+        </attribute>
+      </optional>
+      <attribute name="collection-type">
+        <choice>
+          <value>family</value>
+          <value>sequence</value>
+        </choice>
+      </attribute>
+      <optional>
+        <attribute name="linking">
+          <choice>
+            <value>targetonly</value>
+            <value>sourceonly</value>
+            <value>normal</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chunk">
+          <value>to-content</value> <!-- Only this value is allowed -->
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="copy-to">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <ref name="topicmeta"/>
+      </optional>
+      <zeroOrMore>
+        <choice>
+          <ref name="topicref"/>
+          <ref name="topicgroup"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  
+  <define name="topicgroup">
+    <element name="topicgroup">
+      <!-- Make collection-type mandatory -->
+      <attribute name="collection-type">
+        <choice>
+          <value>family</value>
+          <value>sequence</value>
+        </choice>
+      </attribute>
+      <optional>
+        <ref name="topicmeta"/>
+      </optional>
+      <oneOrMore>
+        <ref name="topicref"/>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="mapref">
+    <element name="mapref">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+      <optional>
+        <attribute name="format">
+          <value>ditamap</value>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+
+  <define name="glossref">
+    <element name="glossref">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+      <optional>
+        <attribute name="format">
+          <data type="string"/> <!-- e.g., "dita" or specific glossary format -->
+        </attribute>
+      </optional>
+      <!-- Potentially other attributes similar to topicref if needed -->
+    </element>
+  </define>
+  
+  <define name="reltable">
+    <element name="reltable">
+      <optional>
+        <ref name="relheader"/>
+      </optional>
+      <oneOrMore>
+        <ref name="relrow"/>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="relheader">
+    <element name="relheader">
+      <oneOrMore>
+        <ref name="relcolspec"/>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="relcolspec">
+    <element name="relcolspec">
+      <optional>
+        <attribute name="type">
+          <data type="string"/>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+  
+  <define name="relrow">
+    <element name="relrow">
+      <oneOrMore>
+        <ref name="relcell"/>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="relcell">
+    <element name="relcell">
+      <zeroOrMore>
+        <choice>
+          <ref name="topicref"/>
+          <ref name="topicgroup"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  
+</grammar>

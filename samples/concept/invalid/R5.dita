@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r5_inv">
+  <title>R5 Invalid Title</title>
+  <shortdesc>This concept is missing a conbody element.</shortdesc>
+  <prolog/>
+</concept>

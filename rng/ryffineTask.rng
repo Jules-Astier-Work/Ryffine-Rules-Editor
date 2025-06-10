@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <include href="../common/ryffineCommonElements.rng"/>
+  
+  <start>
+    <ref name="task"/>
+  </start>
+  
+  <define name="task">
+    <element name="task">
+      <ref name="id-atts"/>
+      <ref name="lang-atts"/>
+      <ref name="title"/>
+      <ref name="shortdesc"/>
+      <ref name="prolog"/>
+      <ref name="taskbody"/>
+    </element>
+  </define>
+  
+  <define name="taskbody">
+    <element name="taskbody">
+      <optional>
+        <ref name="prereq"/>
+      </optional>
+      <optional>
+        <ref name="context"/>
+      </optional>
+      <choice>
+        <ref name="steps"/>
+        <ref name="steps-unordered"/>
+        <ref name="steps-informal"/>
+      </choice>
+      <optional>
+        <ref name="result"/>
+      </optional>
+      <optional>
+        <ref name="example"/>
+      </optional>
+      <optional>
+        <ref name="postreq"/>
+      </optional>
+    </element>
+  </define>
+  
+  <define name="prereq">
+    <element name="prereq">
+      <ref name="ul"/>  <!-- Now only <ul> is allowed -->
+    </element>
+  </define>
+  
+  <define name="context">
+    <element name="context">
+      <oneOrMore>
+        <choice>
+          <ref name="p"/>
+          <ref name="ul"/>
+          <ref name="ol"/>
+          <ref name="note"/>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="result">
+    <element name="result">
+      <oneOrMore>
+        <choice>
+          <ref name="p"/>
+          <ref name="ul"/>
+          <ref name="ol"/>
+          <ref name="fig"/>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="postreq">
+    <element name="postreq">
+      <oneOrMore>
+        <choice>
+          <ref name="p"/>
+          <ref name="ul"/>
+          <ref name="ol"/>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  
+</grammar>

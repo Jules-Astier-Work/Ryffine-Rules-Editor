@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r7_valid">
+  <title>Valid Subsequent Block (R7)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <section id="sec1_r7_valid">
+      <title>Section One</title>
+      <p>Content within section one.</p>
+    </section>
+    <simpletable id="st1_r7_valid">
+      <strow><stentry>A table can follow a section directly.</stentry></strow>
+    </simpletable>
+    <section id="sec2_r7_valid">
+      <title>Section Two</title>
+      <p>Subsequent paragraph is correctly nested in another section. (R7 satisfied)</p>
+    </section>
+  </refbody>
+</reference>

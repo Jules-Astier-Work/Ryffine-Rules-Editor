@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r2_valid">
+  <title>A Single Title</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <p>This reference has one <title> element as required by R2.</p>
+  </refbody>
+</reference>

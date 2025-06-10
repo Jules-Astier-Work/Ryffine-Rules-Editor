@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<troubleshooting>
+  <title>T</title>
+  <prolog/>
+  <troublebody>
+    <troubleSolution>
+      <cause>
+        <table><tgroup cols="1"><colspec colname="c1" colnum="1"/><tbody><row><entry>E</entry></row></tbody></tgroup></table>
+      </cause>
+    </troubleSolution>
+  </troublebody>
+</troubleshooting>

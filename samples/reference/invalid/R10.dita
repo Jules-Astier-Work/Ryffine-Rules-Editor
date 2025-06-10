@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r10_invalid">
+  <title>Example Invalid Title Placement (R10)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <example id="ex_content_before_title_r10">
+        <p>Some content.</p>
+        <title>This title is after content.</title>
+        <p>This structure violates the RNG sequence for an optional title in example, thus violating R10's "optionally begin with a title".</p>
+    </example>
+  </refbody>
+</reference>

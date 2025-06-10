@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r10_val">
+  <title>R10 Valid Example Title</title>
+  <shortdesc>Example beginning with an optional title.</shortdesc>
+  <prolog/>
+  <conbody>
+    <example>
+      <title>Example Title</title>
+      <p>Content after the title.</p>
+    </example>
+  </conbody>
+</concept>

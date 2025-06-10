@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <include href="../common/ryffineCommonElements.rng"/>
+  
+  <start>
+    <ref name="learningOverview"/>
+  </start>
+  
+  <define name="learningOverview">
+    <element name="learningOverview">
+      <ref name="id-atts"/>
+      <ref name="lang-atts"/>
+      <ref name="title"/>
+      <ref name="prolog"/>
+      <ref name="learningOverviewbody"/>
+    </element>
+  </define>
+  
+  <define name="learningOverviewbody">
+    <element name="learningOverviewbody">
+      <ref name="lcIntro"/>
+      <ref name="lcAudience"/>
+      <ref name="lcDuration"/>
+      <optional>
+        <ref name="lcPrereqs"/>
+      </optional>
+      <ref name="lcObjectives"/>
+      <optional>
+        <ref name="lcResources"/>
+      </optional>
+      <zeroOrMore>
+        <ref name="section"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  
+  <define name="lcIntro">
+    <element name="lcIntro">
+      <!-- <optional> REMOVE optional wrapper -->
+        <ref name="title"/>
+      <!-- </optional> -->
+      <oneOrMore>
+        <ref name="p"/>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="lcAudience">
+    <element name="lcAudience">
+      <!-- <optional> REMOVE optional wrapper -->
+        <ref name="title"/>
+      <!-- </optional> -->
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  
+  <define name="lcDuration">
+    <element name="lcDuration">
+      <!-- <optional> REMOVE optional wrapper -->
+        <ref name="title"/>
+      <!-- </optional> -->
+      <ref name="lcTime"/>
+    </element>
+  </define>
+  
+  <define name="lcTime">
+    <element name="lcTime">
+      <!-- REMOVE these attributes:
+      <attribute name="name">
+        <data type="string"/>
+      </attribute>
+      <attribute name="value">
+        <data type="string"/>
+      </attribute>
+      -->
+      <!-- ADD this required attribute: -->
+      <attribute name="time">
+        <data type="string"/>
+      </attribute>
+      <text/>
+    </element>
+  </define>
+  
+  <define name="lcPrereqs">
+    <element name="lcPrereqs">
+      <!-- <optional> REMOVE optional wrapper -->
+        <ref name="title"/>
+      <!-- </optional> -->
+      <oneOrMore>
+        <ref name="p"/>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="lcObjectives">
+    <element name="lcObjectives">
+      <!-- <optional> REMOVE optional wrapper -->
+        <ref name="title"/>
+      <!-- </optional> -->
+      <!-- Original: <ref name="lcObjectivesStem"/> -->
+      <!-- Change for R16 below -->
+      <optional>
+        <ref name="lcObjectivesStem"/>
+      </optional>
+      <!-- Original: <ref name="lcObjectivesGroup"/> -->
+      <!-- Change for R17 below -->
+      <oneOrMore>
+          <ref name="lcObjectivesGroup"/>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="lcObjectivesStem">
+    <element name="lcObjectivesStem">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  
+  <define name="lcObjectivesGroup">
+    <element name="lcObjectivesGroup">
+      <oneOrMore>
+        <ref name="lcObjective"/>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="lcObjective">
+    <element name="lcObjective">
+      <mixed>
+        <zeroOrMore>
+          <ref name="ph"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  
+  <define name="lcResources">
+    <element name="lcResources">
+      <!-- <optional> REMOVE optional wrapper -->
+        <ref name="title"/>
+      <!-- </optional> -->
+      <oneOrMore>
+        <ref name="p"/>
+      </oneOrMore>
+    </element>
+  </define>
+  
+</grammar>

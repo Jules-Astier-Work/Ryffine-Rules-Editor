@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r7_invalid">
+  <title>Invalid Subsequent Block (R7)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <example id="ex1_r7_invalid">
+      <title>Example One</title>
+      <p>Content within example.</p>
+    </example>
+    <p>This loose paragraph appears after an example (and is not a table), violating R7.</p>
+  </refbody>
+</reference>

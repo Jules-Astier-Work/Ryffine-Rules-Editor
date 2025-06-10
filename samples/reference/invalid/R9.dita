@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r9_invalid">
+  <title>Section Missing Title (R9)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <p>Some preceding content.</p>
+    <section id="sec_no_title_r9">
+      <!-- <title>Section Title</title> -->
+      <p>This section is missing its required title element, violating R9 (and RNG).</p>
+    </section>
+  </refbody>
+</reference>

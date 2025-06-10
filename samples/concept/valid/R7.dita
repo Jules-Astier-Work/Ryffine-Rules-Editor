@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r7_val">
+  <title>R7 Valid Nesting</title>
+  <shortdesc>Subsequent blocks are structural or nested.</shortdesc>
+  <prolog/>
+  <conbody>
+    <section id="s1">
+      <title>First Section</title>
+      <p>Content within first section.</p>
+    </section>
+    <example>
+      <title>Example Title</title>
+      <p>Content within example, following a section.</p>
+    </example>
+  </conbody>
+</concept>

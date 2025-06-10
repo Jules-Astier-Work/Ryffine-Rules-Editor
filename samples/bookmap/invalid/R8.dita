@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmap>
+  <booktitle><booklibrary>L</booklibrary><mainbooktitle>T</mainbooktitle></booktitle>
+  <bookmeta/>
+  <frontmatter>
+    <notices href="notice.dita"/> {/* Missing toc="no" as per stricter rule interpretation */}
+  </frontmatter>
+  <chapter href="c.dita"><topicmeta><navtitle>C</navtitle></topicmeta></chapter>
+</bookmap>

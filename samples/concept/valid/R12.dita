@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r12_val">
+  <title>R12 Valid Paragraph Handling</title>
+  <shortdesc>Table entry with paragraph in p tag.</shortdesc>
+  <prolog/>
+  <conbody>
+    <table>
+      <title>Sample Table</title>
+      <tgroup cols="1">
+        <colspec colname="c1" colnum="1"/>
+        <tbody>
+          <row>
+            <entry><p>This text is correctly enclosed in <p> tags within the entry.</p></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </conbody>
+</concept>

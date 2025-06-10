@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r2_inv">
+  <shortdesc>This concept is missing a title element.</shortdesc>
+  <prolog/>
+  <conbody>
+    <p>Content without a preceding title for the concept.</p>
+  </conbody>
+</concept>

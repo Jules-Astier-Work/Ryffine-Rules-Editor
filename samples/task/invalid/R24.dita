@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task>
+  <title>Test Title</title>
+  <shortdesc>Short description</shortdesc>
+  <prolog/>
+  <taskbody>
+    <steps><step><cmd/><substeps/></step></steps>
+  </taskbody>
+</task>

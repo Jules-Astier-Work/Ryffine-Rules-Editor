@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r2_invalid_missing_title">
+  <!-- <title>Sample Reference Title</title> -->
+  <shortdesc>This reference is missing a title, violating R2.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <p>Content.</p>
+  </refbody>
+</reference>

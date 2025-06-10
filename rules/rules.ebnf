@@ -1,0 +1,87 @@
+Rule ::= 
+    | ContentRule
+    | ContainmentRule  
+    | AttributeRule
+    | OrderRule
+    | ContentModelRule
+    | PatternRule
+    | RootRule
+
+ContentRule ::= "Element" ElementRef Modality "contain" ContentSpec "."
+
+ContainmentRule ::= "Element" ElementRef Modality "contain" Cardinality ContentItem "."
+
+AttributeRule ::= "Element" ElementRef Modality "have" "attribute" AttributeRef AttributeConstraint? "."
+
+OrderRule ::= "For element" ElementRef "," "child content must appear in the following order:" OrderSpec "."
+
+ContentModelRule ::= "Element" ElementRef "content must be:" ContentModel "."
+
+PatternRule ::= "Pattern" PatternRef "defines:" PatternContent "."
+
+RootRule ::= "The document root element must be" ElementRef "."
+
+Modality ::= "must" | "can optionally" | "can"
+
+ContentSpec ::= 
+    | "only text"
+    | "text"
+    | ElementContent
+    | PatternContent  
+    | MixedContent
+    | "nothing (empty)"
+
+Cardinality ::= 
+    | ""
+    | "one or more instances of"
+    | "zero or more instances of"
+    | "one or more of"
+    | "zero or more of"
+
+ContentItem ::=
+    | ElementRef
+    | "element" ElementRef
+    | ChoiceGroup
+    | SequenceGroup
+    | PatternRef
+
+ChoiceGroup ::= "one of the following:" ChoiceItem ("or" ChoiceItem)*
+ChoiceItem ::= ElementRef | SequenceGroup | PatternRef
+
+SequenceGroup ::= "(" SequenceItem ("," SequenceItem)* "in sequence" ")"
+SequenceItem ::= ElementRef CardinalityMarker?
+
+MixedContent ::= 
+    | "text and" "(" ContentSpec ")"
+    | "(" "interspersed with text" ")" Cardinality ContentSpec
+
+PatternRef ::= "pattern" "'" PatternName "'"
+PatternContent ::= "content according to pattern" PatternRef
+
+ElementRef ::= "<" ElementName ">" RecursiveMarker?
+AttributeRef ::= "@" AttributeName
+
+AttributeConstraint ::=
+    | "(" "must be one of:" ValueList ")"
+    | "(" "must be a" DataType ")"
+
+ValueList ::= QuotedValue ("," QuotedValue)*
+QuotedValue ::= "'" String "'"
+
+CardinalityMarker ::= 
+    | "(" "optional" ")"
+    | "(" "zero or more" ")"
+    | "(" "one or more" ")"
+
+RecursiveMarker ::= "(" "recursive" ")"
+
+OrderSpec ::= OrderItem ("," OrderItem)*
+OrderItem ::= ContentItem CardinalityMarker?
+
+ContentModel ::=
+    | SimpleContent
+    | ChoiceContent  
+    | SequenceContent
+    | MixedContent
+
+String ::= [a-zA-Z][a-zA-Z0-9-_]*

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<troubleshooting>
+  <title>Sample Troubleshooting Title</title>
+  <prolog/>
+  <troublebody>
+    <troubleSolution>
+      <remedy>
+        <title>Remedy Title</title>
+        <steps-unordered><step><cmd>Verify connections.</cmd></step></steps-unordered>
+      </remedy>
+    </troubleSolution>
+  </troublebody>
+</troubleshooting>

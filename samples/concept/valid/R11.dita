@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r11_val">
+  <title>R11 Valid Sequence</title>
+  <shortdesc>Example followed by a section.</shortdesc>
+  <prolog/>
+  <conbody>
+    <example>
+      <title>First Example</title>
+      <p>Content of first example.</p>
+    </example>
+    <section id="s1">
+      <title>A Section</title>
+      <p>This section correctly follows the example.</p>
+    </section>
+  </conbody>
+</concept>

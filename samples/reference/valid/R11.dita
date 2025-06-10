@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r11_valid">
+  <title>Refsyn in Refbody (R11)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <p>Syntax diagram follows:</p>
+    <!-- <refsyn> is not defined in the provided RNG. Assuming for this rule it's a block element. -->
+    <refsyn id="syn_good_location_r11">
+      <syntaxdiagram>
+        <kwd>COMMAND</kwd>
+      </syntaxdiagram>
+    </refsyn>
+    <p>R11 is satisfied as <refsyn> is in <refbody>.</p>
+  </refbody>
+</reference>

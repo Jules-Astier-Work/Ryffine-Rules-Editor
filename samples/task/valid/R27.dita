@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task>
+  <title>Test Title</title>
+  <shortdesc>Short description</shortdesc>
+  <prolog/>
+  <taskbody>
+    <steps><step><cmd/><choicetable><chhead><choptionhd>Option Head</choptionhd><chdeschd>Description Head</chdeschd></chhead><chrow><choption>Option 1</choption><chdesc><p>Description 1</p></chdesc></chrow></choicetable></step></steps>
+  </taskbody>
+</task>

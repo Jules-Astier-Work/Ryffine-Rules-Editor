@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <include href="../common/ryffineCommonElements.rng"/>
+  
+  <start>
+    <ref name="glossentry"/>
+  </start>
+  
+  <define name="glossentry">
+    <element name="glossentry">
+      <ref name="id-atts"/>
+      <ref name="lang-atts"/>
+      <ref name="glossterm"/>
+      <ref name="glossdef"/>
+      <optional>
+        <ref name="glossBody"/>
+      </optional>
+    </element>
+  </define>
+  
+  <define name="glossterm">
+    <element name="glossterm">
+      <text/>
+    </element>
+  </define>
+  
+  <!-- R16: Content within <glossdef> must use <p> tags for all paragraphs. -->
+  <define name="glossdef">
+    <element name="glossdef">
+      <oneOrMore>
+        <ref name="p"/> <!-- Assumes 'p' from common elements is suitable -->
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <!-- R9: If <glossBody> is used for an acronym, it must contain a <glossSurfaceForm> 
+           element, followed immediately by a <glossAlt> element. -->
+  <define name="glossBody">
+    <element name="glossBody">
+      <optional>
+        <ref name="glossStatus"/>
+      </optional>
+      <optional>
+        <ref name="glossProperty"/>
+      </optional>
+      <choice>
+        <group> <!-- Case: Acronym/Abbreviation is present (via glossAlt) -->
+          <ref name="glossSurfaceForm"/>
+          <ref name="glossAlt"/>
+        </group>
+        <optional> <!-- Case: Acronym/Abbreviation is NOT present, but glossSurfaceForm might be -->
+          <ref name="glossSurfaceForm"/>
+        </optional>
+        <empty/> <!-- Case: Neither glossSurfaceForm nor glossAlt are present in this position -->
+      </choice>
+      <optional>
+        <ref name="glossUsage"/>
+      </optional>
+      <optional>
+        <ref name="glossScopeNote"/>
+      </optional>
+      <optional>
+        <ref name="glossSymbol"/>
+      </optional>
+      <!-- glossAlt and glossSurfaceForm are handled in the choice structure above -->
+    </element>
+  </define>
+  
+  <define name="glossStatus">
+    <element name="glossStatus">
+      <attribute name="value">
+        <choice>
+          <value>active</value>
+          <value>deprecated</value>
+          <value>removed</value>
+        </choice>
+      </attribute>
+    </element>
+  </define>
+  
+  <define name="glossProperty">
+    <element name="glossProperty">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="glossSurfaceForm">
+    <element name="glossSurfaceForm">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="glossUsage">
+    <element name="glossUsage">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  
+  <define name="glossScopeNote">
+    <element name="glossScopeNote">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  
+  <define name="glossSymbol">
+    <element name="glossSymbol">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+    </element>
+  </define>
+  
+  <!-- R15: <glossAlt> element (if present) is a container for <glossAcronym> or <glossAbbreviation>.
+            (Ensures it's not empty and contains at least one, allows both) -->
+  <define name="glossAlt">
+    <element name="glossAlt">
+      <choice>
+        <group>
+          <ref name="glossAcronym"/>
+          <optional>
+            <ref name="glossAbbreviation"/>
+          </optional>
+        </group>
+        <ref name="glossAbbreviation"/>
+      </choice>
+    </element>
+  </define>
+  
+  <define name="glossAcronym">
+    <element name="glossAcronym">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="glossAbbreviation">
+    <element name="glossAbbreviation">
+      <text/>
+    </element>
+  </define>
+  
+</grammar>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r15_invalid">
+  <title>Invalid Field Definition Table (R15)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <p>This simpletable is for field definitions but omits keycol="1", violating R15.</p>
+    <simpletable id="st_field_def_bad_r15" frame="all">
+      <!-- keycol="1" is missing -->
+      <sthead>
+        <stentry>Field Name</stentry>
+        <stentry>Description</stentry>
+      </sthead>
+      <strow>
+        <stentry>UserID</stentry>
+        <stentry>The unique identifier for the user.</stentry>
+      </strow>
+    </simpletable>
+  </refbody>
+</reference>

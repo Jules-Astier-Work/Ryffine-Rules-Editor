@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<troubleshooting>
+  <title>Sample Troubleshooting Title</title>
+  <prolog/>
+  <troublebody>
+    <troubleSolution>
+      <cause>
+        <title>Diagnostics Table</title>
+        <table><tgroup cols="1"><colspec colname="c1" colnum="1"/><tbody><row><entry>Symptom A</entry></row></tbody_</tgroup></table>
+      </cause>
+    </troubleSolution>
+  </troublebody>
+</troubleshooting>

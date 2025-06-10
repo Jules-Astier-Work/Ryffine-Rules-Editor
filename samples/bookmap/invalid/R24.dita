@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmap>
+  <booktitle><booklibrary>L</booklibrary><mainbooktitle>T</mainbooktitle></booktitle>
+  <bookmeta/>
+  <frontmatter/>
+  <chapter href="c.dita"><topicmeta><navtitle>C</navtitle></topicmeta></chapter>
+  <backmatter>
+    <glossarylist href="gloss.dita"/> {/* Not in booklists. This is invalid by current backmatter RNG. */}
+  </backmatter>
+</bookmap>

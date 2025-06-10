@@ -1,0 +1,213 @@
+start: rule
+
+rule: content_rule
+    | containment_rule  
+    | attribute_rule
+    | root_rule
+    | pattern_rule
+    | mixed_content_rule
+    | group_rule
+    | order_rule
+    | empty_rule
+    | attribute_set_rule // NEW
+    | element_uses_attribute_set_rule // NEW
+
+// Basic content rules
+content_rule: "Element" element_ref modality "contain" content_spec "."
+
+// Containment rules with cardinality
+containment_rule: "Element" element_ref modality "contain" cardinality content_item "."
+
+// Enhanced attribute rules with data types
+attribute_rule: "Element" element_ref modality "have" "attribute" attribute_ref attribute_constraint? "."
+
+// Mixed content rules
+mixed_content_rule: "Element" element_ref "can" "contain" "text" "mixed" "with" mixed_content_spec "."
+
+mixed_content_spec: any_of_spec
+                  | unlimited_spec
+
+any_of_spec: "any" "of:" mixed_content_list -> any_of
+unlimited_spec: "unlimited" pattern_ref -> unlimited
+
+mixed_content_list: mixed_content_item ("," mixed_content_item)*
+
+mixed_content_item: element_ref
+                  | pattern_ref
+
+// Group rules for logical bundling
+group_rule: "Elements" element_group "as" "a" "group" modality occur_together "."
+
+// Order rules for element sequences
+order_rule: "Element" element_ref "children" "must" "appear" "in" "order" ":" order_spec "."
+
+// Empty element rules
+empty_rule: "Element" element_ref "must" "be" "empty" "."
+
+// Rule for defining a named set of attributes
+attribute_set_rule: "Attribute" "set" QUOTED_PATTERN_NAME "provides" ":" attribute_set_item_list "."
+
+attribute_set_item_list: attribute_set_item ("," attribute_set_item)*
+attribute_set_item: "attribute" attribute_ref attribute_constraint? optional_marker? // Note: optional_marker for attributes within the set
+
+// Rule for an element to use an attribute set
+// This rule would typically be generated ALONGSIDE any direct attribute_rules for the element.
+element_uses_attribute_set_rule: "Element" element_ref "uses" "attribute" "set" QUOTED_PATTERN_NAME "."
+
+// Root element rules
+root_rule: "The" "document" "root" "element" "must" "be" element_ref "."
+
+// Pattern definition rules  
+pattern_rule: "Pattern" QUOTED_PATTERN_NAME "defines" ":" pattern_content "."
+
+// Modalities - FIXED: wrap in rules to capture values
+modality: must_modal
+        | can_optionally_modal  
+        | can_modal
+        | are_modal
+
+must_modal: "must" -> must
+can_optionally_modal: "can" "optionally" -> can_optionally
+can_modal: "can" -> can
+are_modal: "are" -> are
+
+// Content specifications - FIXED: wrap in rules to capture values
+content_spec: only_text_spec
+            | text_spec
+            | element_spec
+            | choice_group
+            | empty_spec
+            | pattern_content_spec
+
+only_text_spec: "only" "text" -> only_text
+text_spec: "text" -> text
+element_spec: "element" element_ref -> element
+empty_spec: "nothing" "(" "empty" ")" -> empty
+pattern_content_spec: "content" "according" "to" "pattern" QUOTED_PATTERN_NAME -> content_pattern
+
+// Cardinality - FIXED: wrap in rules to capture values
+cardinality: one_or_more_instances
+           | zero_or_more_instances
+           | one_or_more_of
+           | zero_or_more_of
+
+one_or_more_instances: "one" "or" "more" "instances" "of" -> one_or_more_instances
+zero_or_more_instances: "zero" "or" "more" "instances" "of" -> zero_or_more_instances
+one_or_more_of: "one" "or" "more" "of" -> one_or_more_of
+zero_or_more_of: "zero" "or" "more" "of" -> zero_or_more_of
+
+// Content items
+content_item: element_ref
+            | "element" element_ref
+            | choice_group
+            | element_group
+
+// Choice groups
+choice_group: "one" "of" "the" "following:" choice_list
+choice_list: choice_item ("or" choice_item)*
+choice_item: element_ref 
+           | pattern_ref
+           | "(" element_ref ("," element_ref)* "in" "sequence" ")"
+
+// Element groups for bundling
+element_group: "{" element_ref ("," element_ref)* "}"
+
+// Group occurrence
+occur_together: "occur" "together"
+              | "are" "bundled"
+              | "are" "optional"
+              | "are" "required"
+
+// Order specifications - FIXED: Added support for cardinality in parentheses
+cardinality_phrase: one_or_more_of
+                  | zero_or_more_of
+
+order_cardinality_subject: element_ref
+                         | pattern_ref
+                         | "text"
+                         | order_subject_choice_group
+                         | order_subject_sequence_group
+
+order_cardinality_spec: cardinality_phrase order_cardinality_subject
+
+order_subject_choice_group: "(" choice_item ("or" choice_item)+ ")"
+order_subject_sequence_group: "(" order_item ("," order_item)* ")" // Allows full order_items, including nested cardinality
+
+// --- EXISTING/UNCHANGED FOR CONTEXT (but `order_item` now uses the new `order_cardinality_spec`) ---
+order_spec: order_item ("," order_item)*
+
+order_item: base_order_item optional_marker?
+base_order_item: element_ref
+          | pattern_ref
+          | "text"
+          | "(" order_cardinality_spec ")"  // Uses the MODIFIED spec
+          | order_choice_group // A choice group as a direct order item
+          | "(" order_item ("," order_item)* ")"   // A sequence group as a direct order item
+
+order_choice_group: "(" choice_item ("or" choice_item)+ ")"
+
+optional_marker: "(" "optional" ")"
+
+// Pattern references
+pattern_ref: "pattern" QUOTED_PATTERN_NAME
+pattern_content: "(" "one" "of" choice_list ")"
+               | element_ref
+               | "(" choice_item ("or" choice_item)+ ")"
+
+// Quoted pattern names
+QUOTED_PATTERN_NAME: "'" /[a-zA-Z][a-zA-Z0-9-_.]*/ "'"
+
+// Element and attribute references - FIXED: optional_marker instead of recursive for order items
+element_ref: "<" element_name ">" recursive_marker?
+attribute_ref: "@" attribute_name
+
+// Enhanced attribute constraints
+attribute_constraint: enum_constraint
+                    | datatype_constraint
+                    | pattern_constraint
+                    | list_constraint
+
+enum_constraint: "(" "must" "be" "one" "of:" value_list ")"
+datatype_constraint: "(" "must" "be" "a" "valid" data_type ")"
+pattern_constraint: "(" "must" "match" "pattern" regex_pattern ")"
+list_constraint: "(" "must" "be" "a" "list" "of" data_type ")"
+
+value_list: quoted_value ("," quoted_value)*
+quoted_value: "'" value_text "'"
+
+// Data types - FIXED: wrap in rules to capture values
+data_type: "integer" -> integer
+         | "decimal" -> decimal
+         | "boolean" -> boolean
+         | "date" -> date
+         | "time" -> time
+         | "dateTime" -> datetime
+         | "anyURI" -> anyuri
+         | "ID" -> id_type
+         | "IDREF" -> idref
+         | "NMTOKEN" -> nmtoken
+         | "string" -> string
+         | "language" -> language
+         | "positiveInteger" -> positiveinteger
+         | "nonNegativeInteger" -> nonnegativeinteger
+
+// Regex patterns
+regex_pattern: "/" regex_literal "/"
+
+// Markers
+recursive_marker: "{" "recursive" "}"
+
+// Basic elements
+element_name: ELEMENT_NAME
+attribute_name: ATTR_NAME  
+value_text: VALUE_TEXT
+regex_literal: REGEX_LITERAL
+
+// Terminals
+ELEMENT_NAME: /[a-zA-Z][a-zA-Z0-9-_]*/
+ATTR_NAME: /[a-zA-Z][a-zA-Z0-9-_:]*/
+VALUE_TEXT: /[^']+/
+REGEX_LITERAL: /[^\/]+/
+
+%import common.WS
+%ignore WS

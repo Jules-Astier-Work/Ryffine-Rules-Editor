@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task>
+  <title>Test Title</title>
+  <shortdesc>Short description</shortdesc>
+  <prolog/>
+  <taskbody>
+    <steps><step><cmd/></step></steps>
+    <result>
+      <fig>
+        <title>Figure Title</title>
+        <desc><p>This is a paragraph in the figure description.</p></desc>
+        <image href="image.png"/>
+      </fig>
+    </result>
+  </taskbody>
+</task>

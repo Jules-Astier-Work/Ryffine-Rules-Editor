@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r14_invalid">
+  <title>Paragraphs not in P tags (R14)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <dl>
+      <dlentry>
+        <dt>Term</dt>
+        <dd>This is a definition. It forms a paragraph but is not in a <p> tag.
+           This violates R14's stylistic intent for paragraph content.
+        </dd>
+      </dlentry>
+    </dl>
+  </refbody>
+</reference>

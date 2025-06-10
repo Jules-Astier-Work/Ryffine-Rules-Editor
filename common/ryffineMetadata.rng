@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <define name="prolog">
+    <element name="prolog">
+      <optional>
+        <ref name="author"/>
+      </optional>
+      <optional>
+        <ref name="source"/>
+      </optional>
+      <optional>
+        <ref name="critdates"/>
+      </optional>
+      <optional>
+        <ref name="permissions"/>
+      </optional>
+      <optional>
+        <ref name="metadata"/>
+      </optional>
+      <optional>
+        <ref name="resourceid"/>
+      </optional>
+    </element>
+  </define>
+  
+  <define name="author">
+    <element name="author">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="source">
+    <element name="source">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="critdates">
+    <element name="critdates">
+      <optional>
+        <ref name="created"/>
+      </optional>
+      <optional>
+        <ref name="revised"/>
+      </optional>
+    </element>
+  </define>
+  
+  <define name="created">
+    <element name="created">
+      <attribute name="date">
+        <data type="string"/>
+      </attribute>
+    </element>
+  </define>
+  
+  <define name="revised">
+    <element name="revised">
+      <attribute name="modified">
+        <data type="string"/>
+      </attribute>
+    </element>
+  </define>
+  
+  <define name="permissions">
+    <element name="permissions">
+      <attribute name="view">
+        <data type="string"/>
+      </attribute>
+    </element>
+  </define>
+  
+  <define name="metadata">
+    <element name="metadata">
+      <zeroOrMore>
+        <choice>
+          <ref name="audience"/>
+          <ref name="category"/>
+          <ref name="keywords"/>
+          <ref name="prodinfo"/>
+          <ref name="othermeta"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  
+  <define name="audience">
+    <element name="audience">
+      <optional>
+        <attribute name="type">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="job">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="experiencelevel">
+          <data type="string"/>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+  
+  <define name="category">
+    <element name="category">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="keywords">
+    <element name="keywords">
+      <oneOrMore>
+        <choice>
+          <ref name="keyword"/>
+          <ref name="indexterm"/>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="keyword">
+    <element name="keyword">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="indexterm">
+    <element name="indexterm">
+      <mixed>
+        <zeroOrMore>
+          <choice>
+            <ref name="indexterm"/>
+            <ref name="index-see"/>
+            <ref name="index-see-also"/>
+          </choice>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  
+  <define name="index-see">
+    <element name="index-see">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="index-see-also">
+    <element name="index-see-also">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="prodinfo">
+    <element name="prodinfo">
+      <ref name="prodname"/>
+      <ref name="vrmlist"/>
+      <optional>
+        <ref name="brand"/>
+      </optional>
+      <optional>
+        <ref name="component"/>
+      </optional>
+      <optional>
+        <ref name="featnum"/>
+      </optional>
+      <optional>
+        <ref name="platform"/>
+      </optional>
+      <optional>
+        <ref name="prognum"/>
+      </optional>
+      <optional>
+        <ref name="series"/>
+      </optional>
+    </element>
+  </define>
+  
+  <define name="prodname">
+    <element name="prodname">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="vrmlist">
+    <element name="vrmlist">
+      <oneOrMore>
+        <ref name="vrm"/>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="vrm">
+    <element name="vrm">
+      <attribute name="version">
+        <data type="string"/>
+      </attribute>
+      <optional>
+        <attribute name="release">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="modification">
+          <data type="string"/>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+  
+  <define name="brand">
+    <element name="brand">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="component">
+    <element name="component">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="featnum">
+    <element name="featnum">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="platform">
+    <element name="platform">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="prognum">
+    <element name="prognum">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="series">
+    <element name="series">
+      <text/>
+    </element>
+  </define>
+  
+  <define name="othermeta">
+    <element name="othermeta">
+      <attribute name="name">
+        <data type="string"/>
+      </attribute>
+      <attribute name="content">
+        <data type="string"/>
+      </attribute>
+    </element>
+  </define>
+  
+  <define name="resourceid">
+    <element name="resourceid">
+      <attribute name="id">
+        <data type="string"/>
+      </attribute>
+    </element>
+  </define>
+  
+</grammar>

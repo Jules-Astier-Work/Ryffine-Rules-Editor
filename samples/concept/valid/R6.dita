@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r6_val">
+  <title>R6 Valid Order</title>
+  <shortdesc>Loose blocks before structural blocks.</shortdesc>
+  <prolog/>
+  <conbody>
+    <p>A loose paragraph appearing first.</p>
+    <section id="s1">
+      <title>Section Title</title>
+      <p>Content within section.</p>
+    </section>
+  </conbody>
+</concept>

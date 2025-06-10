@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+  <title>Map Title</title>
+  <topicref href="initial.dita" collection-type="family"/>
+  <reltable>
+    <relrow>
+      <relcell><topicref href="related1.dita" collection-type="family"/></relcell>
+      <relcell><topicref href="related2.dita" collection-type="family"/></relcell>
+    </relrow>
+  </reltable>
+</map>

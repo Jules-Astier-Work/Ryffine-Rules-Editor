@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r10_inv">
+  <title>R10 Invalid Example Title</title>
+  <shortdesc>Example with title not at the beginning.</shortdesc>
+  <prolog/>
+  <conbody>
+    <example>
+      <p>Content before the title.</p>
+      <title>Example Title (Misplaced)</title>
+    </example>
+  </conbody>
+</concept>

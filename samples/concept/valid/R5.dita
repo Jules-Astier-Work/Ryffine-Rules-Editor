@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r5_val">
+  <title>R5 Valid Title</title>
+  <shortdesc>This concept correctly includes a conbody.</shortdesc>
+  <prolog/>
+  <conbody>
+    <p>Content within the conbody.</p>
+  </conbody>
+</concept>

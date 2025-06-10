@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r9_val">
+  <title>R9 Valid Sequence</title>
+  <shortdesc>Section followed by another section.</shortdesc>
+  <prolog/>
+  <conbody>
+    <section id="s1">
+      <title>First Section</title>
+      <p>Content of first section.</p>
+    </section>
+    <section id="s2">
+      <title>Second Section</title>
+      <p>This section correctly follows the first section.</p>
+    </section>
+  </conbody>
+</concept>

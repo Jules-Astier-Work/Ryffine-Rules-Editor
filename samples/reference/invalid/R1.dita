@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="concept_r1_invalid">
+  <title>Wrong Root Element</title>
+  <conbody>
+    <p>This document uses <concept> as root instead of <reference>, violating R1.</p>
+  </conbody>
+</concept>

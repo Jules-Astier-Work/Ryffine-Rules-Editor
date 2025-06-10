@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<troubleshooting>
+  <title>T</title>
+  <prolog/>
+  <troublebody>
+    <condition>This is raw text, not in a p.</condition>
+    <troubleSolution>
+      <remedy><title>R</title><steps-informal><p>Remedy.</p></steps-informal></remedy>
+    </troubleSolution>
+  </troublebody>
+</troubleshooting>

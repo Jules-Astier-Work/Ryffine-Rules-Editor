@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic id="t_r1_inv">
+  <title>R1 Invalid Title</title>
+  <shortdesc>This document uses 'topic' as root instead of 'concept'.</shortdesc>
+  <body>
+    <p>Some content.</p>
+  </body>
+</topic>

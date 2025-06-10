@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmap>
+  <booktitle><booklibrary>L</booklibrary><mainbooktitle>T</mainbooktitle></booktitle>
+  <bookmeta/>
+  <frontmatter/>
+  {/* Assuming 'part' can appear here for the sake of the rule */}
+  <part>
+    <topicmeta>
+      <navtitle>Part Title</navtitle>
+    </topicmeta>
+    <chapter href="c1.dita"><topicmeta><navtitle>Chapter 1 in Part</navtitle></topicmeta></chapter>
+  </part>
+  <chapter href="c.dita"><topicmeta><navtitle>C</navtitle></topicmeta></chapter>
+</bookmap>

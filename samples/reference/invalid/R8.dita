@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r8_invalid">
+  <title>Table Misplaced (R8)</title>
+  <shortdesc>Shortdesc. 
+    <simpletable id="st_bad_r8">
+      <strow><stentry>Table cannot be here (violates R8 context and RNG for shortdesc).</stentry></strow>
+    </simpletable>
+  </shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <p>Rule R8 states tables can be in refbody or section/example. This example shows a table in an invalid location.</p>
+  </refbody>
+</reference>

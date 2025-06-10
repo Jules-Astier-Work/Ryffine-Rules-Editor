@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r9_valid">
+  <title>Section With Title (R9)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <section id="sec_with_title1_r9">
+      <title>First Section Title</title>
+      <p>This section has a title.</p>
+    </section>
+    <p>Some content.</p>
+    <section id="sec_with_title2_r9">
+      <title>Second Section Title</title>
+      <p>This section also has a title, as required by R9 (and RNG).</p>
+    </section>
+  </refbody>
+</reference>

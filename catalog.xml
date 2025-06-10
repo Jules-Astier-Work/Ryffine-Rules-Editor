@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  
+  <!-- Ryffine DITA Topic Types -->
+  <public publicId="-//RYFFINE//DTD DITA Concept//EN" 
+          uri="rng/ryffineConcept.rng"/>
+  
+  <public publicId="-//RYFFINE//DTD DITA Task//EN" 
+          uri="rng/ryffineTask.rng"/>
+  
+  <public publicId="-//RYFFINE//DTD DITA Reference//EN" 
+          uri="rng/ryffineReference.rng"/>
+  
+  <public publicId="-//RYFFINE//DTD DITA Troubleshooting//EN" 
+          uri="rng/ryffineTroubleshooting.rng"/>
+  
+  <public publicId="-//RYFFINE//DTD DITA Glossary Entry//EN" 
+          uri="rng/ryffineGlossentry.rng"/>
+  
+  <public publicId="-//RYFFINE//DTD DITA Learning Overview//EN" 
+          uri="rng/ryffineLearningOverview.rng"/>
+  
+  <!-- Ryffine DITA Map Types -->
+  <public publicId="-//RYFFINE//DTD DITA Map//EN" 
+          uri="rng/ryffineMap.rng"/>
+  
+  <public publicId="-//RYFFINE//DTD DITA BookMap//EN" 
+          uri="rng/ryffineBookmap.rng"/>
+  
+  <!-- URI mappings for schema association -->
+  <uri name="http://www.ryffine.com/dita/rng/concept.rng" 
+       uri="rng/ryffineConcept.rng"/>
+  
+  <uri name="http://www.ryffine.com/dita/rng/task.rng" 
+       uri="rng/ryffineTask.rng"/>
+  
+  <uri name="http://www.ryffine.com/dita/rng/reference.rng" 
+       uri="rng/ryffineReference.rng"/>
+  
+  <uri name="http://www.ryffine.com/dita/rng/troubleshooting.rng" 
+       uri="rng/ryffineTroubleshooting.rng"/>
+  
+  <uri name="http://www.ryffine.com/dita/rng/glossentry.rng" 
+       uri="rng/ryffineGlossentry.rng"/>
+  
+  <uri name="http://www.ryffine.com/dita/rng/learningOverview.rng" 
+       uri="rng/ryffineLearningOverview.rng"/>
+  
+  <uri name="http://www.ryffine.com/dita/rng/map.rng" 
+       uri="rng/ryffineMap.rng"/>
+  
+  <uri name="http://www.ryffine.com/dita/rng/bookmap.rng" 
+       uri="rng/ryffineBookmap.rng"/>
+  
+</catalog>

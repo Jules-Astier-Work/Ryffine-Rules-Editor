@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmap>
+  <booktitle><booklibrary>L</booklibrary><mainbooktitle>T</mainbooktitle></booktitle>
+  <bookmeta/>
+  <frontmatter/>
+  <chapter href="c.dita"><topicmeta><navtitle>C</navtitle></topicmeta></chapter>
+  <backmatter>
+    <booklists>
+      <toc/> {/* Allowed by generic booklists RNG, but not by rule R25 for backmatter context */}
+    </booklists>
+  </backmatter>
+</bookmap>

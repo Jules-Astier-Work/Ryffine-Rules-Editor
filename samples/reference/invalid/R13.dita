@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r13_invalid">
+  <title>Syntaxdiagram Invalid Content (R13)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <!-- Syntax elements (kwd, var, etc.) are not defined in provided RNG. -->
+    <refsyn id="syn_invalid_diag_content_r13">
+      <syntaxdiagram>
+        <kwd>COMMAND</kwd>
+        <p>This paragraph is not a valid syntaxdiagram child element per R13.</p>
+        <var>parameter</var>
+      </syntaxdiagram>
+    </refsyn>
+  </refbody>
+</reference>

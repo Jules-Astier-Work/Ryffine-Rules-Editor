@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r6_inv">
+  <title>R6 Invalid Order</title>
+  <shortdesc>Loose block after structural block.</shortdesc>
+  <prolog/>
+  <conbody>
+    <section id="s1">
+      <title>Section Title</title>
+      <p>Content within section.</p>
+    </section>
+    <p>A loose paragraph appearing after a section element.</p>
+  </conbody>
+</concept>

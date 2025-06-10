@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r15_valid">
+  <title>Valid Field Definition Tables (R15)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <p>Using simpletable with keycol="1" for field definitions (R15 satisfied):</p>
+    <simpletable id="st_field_def_good_r15" keycol="1" frame="all">
+      <sthead>
+        <stentry>Field Name</stentry>
+        <stentry>Description</stentry>
+      </sthead>
+      <strow>
+        <stentry>FieldA</stentry>
+        <stentry>Description of FieldA.</stentry>
+      </strow>
+    </simpletable>
+
+    <p>Using CALS table with thead for field definitions (R15 satisfied):</p>
+    <table id="cals_field_def_good_r15" frame="all">
+      <title>Field Definitions (CALS)</title>
+      <tgroup cols="2">
+        <colspec colname="c1_r15" colnum="1" colwidth="30*"/>
+        <colspec colname="c2_r15" colnum="2" colwidth="70*"/>
+        <thead>
+          <row>
+            <entry>Field Name</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>ParameterX</entry>
+            <entry>Specifies the X parameter for the operation.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </refbody>
+</reference>

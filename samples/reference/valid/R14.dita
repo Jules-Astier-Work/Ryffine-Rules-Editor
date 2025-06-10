@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r14_valid">
+  <title>Paragraphs in P tags (R14)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <dl>
+      <dlentry>
+        <dt>Term</dt>
+        <dd><p>This definition is correctly wrapped in a <p> tag.</p></dd>
+      </dlentry>
+    </dl>
+    <ul>
+      <li><p>List item text is in a paragraph.</p></li>
+    </ul>
+    <section id="sec_r14"><title>Section</title><p>Paragraph in section.</p></section>
+    <example id="ex_r14"><title>Example</title><p>Paragraph in example. (R14 satisfied)</p></example>
+  </refbody>
+</reference>

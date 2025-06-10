@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r3_invalid_order">
+  <shortdesc>Shortdesc is misplaced before title, violating R3.</shortdesc>
+  <title>Misplaced Shortdesc</title>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <p>Content.</p>
+  </refbody>
+</reference>

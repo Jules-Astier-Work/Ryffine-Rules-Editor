@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<troubleshooting>
+  <title>T</title>
+  <prolog/>
+  <troublebody>
+    <condition><p>Condition text.</p></condition>
+  </troublebody>
+</troubleshooting>

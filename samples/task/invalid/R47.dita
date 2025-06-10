@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task>
+  <title>Test Title</title>
+  <shortdesc>Short description</shortdesc>
+  <prolog/>
+  <taskbody>
+    <steps><step><cmd/></step></steps>
+    <result>
+      <fig>
+        <desc>Direct text in desc is not allowed.</desc>
+        <image href="image.png"/>
+      </fig>
+    </result>
+  </taskbody>
+</task>

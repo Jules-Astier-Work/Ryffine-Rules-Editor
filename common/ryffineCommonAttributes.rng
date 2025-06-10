@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <!-- ID attribute -->
+  <define name="id-atts">
+    <optional>
+      <attribute name="id">
+        <data type="ID"/>
+      </attribute>
+    </optional>
+  </define>
+  
+  <!-- Language attributes -->
+  <define name="lang-atts">
+    <optional>
+      <attribute name="xml:lang">
+        <data type="language"/>
+      </attribute>
+    </optional>
+  </define>
+  
+  <!-- Common attributes group -->
+  <define name="common-atts">
+    <ref name="id-atts"/>
+    <ref name="lang-atts"/>
+  </define>
+  
+</grammar>

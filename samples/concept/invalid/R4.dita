@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r4_inv">
+  <title>R4 Invalid Title</title>
+  <shortdesc>This concept is missing a prolog element.</shortdesc>
+  <conbody>
+    <p>Content for a concept without a prolog.</p>
+  </conbody>
+</concept>

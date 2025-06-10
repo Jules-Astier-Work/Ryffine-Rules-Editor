@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <include href="../common/ryffineCommonElements.rng"/>
+  
+  <start>
+    <ref name="troubleshooting"/>
+  </start>
+  
+  <define name="troubleshooting">
+    <element name="troubleshooting">
+      <ref name="id-atts"/>
+      <ref name="lang-atts"/>
+      <ref name="title"/>
+      <optional>
+        <ref name="shortdesc"/>
+      </optional>
+      <ref name="prolog"/>
+      <ref name="troublebody"/>
+    </element>
+  </define>
+  
+  <define name="troublebody">
+    <element name="troublebody">
+      <optional>
+        <ref name="condition"/>
+      </optional>
+      <oneOrMore>
+        <ref name="troubleSolution"/>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="condition">
+    <element name="condition">
+      <oneOrMore>
+        <choice>
+          <ref name="p"/>
+          <ref name="ul"/>
+          <ref name="ol"/>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  
+  <define name="troubleSolution">
+    <element name="troubleSolution">
+      <choice>
+        <group> <!-- Allows cause, then optional remedy(s) -->
+          <ref name="cause"/>
+          <zeroOrMore>
+            <ref name="remedy"/>
+          </zeroOrMore>
+        </group>
+        <oneOrMore> <!-- Allows remedy(s) only (cause would have been caught by the group above if present) -->
+          <ref name="remedy"/>
+        </oneOrMore>
+      </choice>
+    </element>
+  </define>
+  
+  <define name="cause">
+    <element name="cause">
+      <choice>
+        <group> <!-- Case: Diagnostic table -->
+          <ref name="title"/> <!-- Title "Diagnostics" (content not enforceable by RNG) -->
+          <ref name="table"/> <!-- The diagnostic table -->
+        </group>
+        <group> <!-- Case: No table (or table is optional elsewhere if you have a more complex model) -->
+          <optional>
+            <ref name="title"/>
+          </optional>
+          <oneOrMore>
+            <choice>
+              <ref name="p"/>
+              <ref name="ul"/>
+              <ref name="ol"/>
+              <!-- If table can also appear here without mandatory title, add it back -->
+              <!-- <ref name="table"/> -->
+            </choice>
+          </oneOrMore>
+        </group>
+      </choice>
+    </element>
+  </define>
+  
+  <define name="remedy">
+    <element name="remedy">
+      <ref name="title"/> <!-- Now mandatory -->
+      <optional>
+        <ref name="responsibleParty"/>
+      </optional>
+      <choice>
+        <ref name="steps"/>
+        <ref name="steps-unordered"/>
+        <ref name="steps-informal"/>
+      </choice>
+    </element>
+  </define>
+  
+  <define name="responsibleParty">
+    <element name="responsibleParty">
+      <text/>
+    </element>
+  </define>
+  
+</grammar>

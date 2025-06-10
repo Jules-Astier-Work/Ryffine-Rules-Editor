@@ -1,0 +1,803 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <!-- Consolidated RNG generated from ryffineBookmap.rng and 3 dependencies -->
+  <!-- Source files: ryffineCommonAttributes.rng, ryffineCommonElements.rng, ryffineMetadata.rng, ryffineBookmap.rng -->
+  <start>
+    <ref name="bookmap"/>
+  </start>
+  <define name="addressdetails">
+    <element name="addressdetails">
+      <ref name="thoroughfare"/>
+      <ref name="locality"/>
+      <ref name="administrativearea"/>
+      <ref name="country"/>
+    </element>
+  </define>
+  <define name="administrativearea">
+    <element name="administrativearea">
+      <text/>
+    </element>
+  </define>
+  <define name="appendices">
+    <element name="appendices">
+      <!-- Add id-atts, lang-atts if needed -->
+      <optional><ref name="topicmeta"/></optional> <!-- Common for grouping elements -->
+      <oneOrMore>
+        <ref name="appendix"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="appendix">
+    <element name="appendix">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+      <ref name="topicmeta"/>
+      <zeroOrMore>
+        <choice>
+          <ref name="topicref"/>
+          <ref name="mapref"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="audience">
+    <element name="audience">
+      <optional>
+        <attribute name="type">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="job">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="experiencelevel">
+          <data type="string"/>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+  <define name="authorinformation">
+    <element name="authorinformation">
+      <ref name="organizationinfo"/>
+    </element>
+  </define>
+  <define name="b">
+    <element name="b">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline.noxref"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="backmatter">
+    <element name="backmatter">
+      <optional>
+        <ref name="booklists"/>
+      </optional>
+      <zeroOrMore>
+        <ref name="topicref"/>
+      </zeroOrMore>
+      <optional><ref name="reltable"/></optional>
+    </element>
+  </define>
+  <define name="bookid">
+    <element name="bookid">
+      <optional>
+        <ref name="bookpartno"/>
+      </optional>
+    </element>
+  </define>
+  <define name="booklibrary">
+    <element name="booklibrary">
+      <text/>
+    </element>
+  </define>
+  <define name="booklists">
+    <element name="booklists">
+      <optional>
+        <ref name="toc"/>
+      </optional>
+      <optional>
+        <ref name="figurelist"/>
+      </optional>
+      <optional>
+        <ref name="tablelist"/>
+      </optional>
+      <optional>
+        <ref name="indexlist"/>
+      </optional>
+      <optional>
+        <ref name="glossarylist"/>
+      </optional>
+    </element>
+  </define>
+  <define name="bookmap">
+    <element name="bookmap">
+      <ref name="id-atts"/>
+      <ref name="lang-atts"/>
+      <ref name="booktitle"/>
+      <ref name="bookmeta"/>
+      <ref name="frontmatter"/>
+      <oneOrMore>
+        <ref name="chapter"/>
+      </oneOrMore>
+      <optional>
+        <choice>
+          <oneOrMore>
+            <ref name="appendix"/>
+          </oneOrMore>
+          <ref name="appendices"/>
+        </choice>
+      </optional>
+      <optional>
+        <ref name="backmatter"/>
+      </optional>
+      <optional>
+        <ref name="reltable"/>
+      </optional>
+    </element>
+  </define>
+  <define name="bookmeta">
+    <element name="bookmeta">
+      <optional>
+        <ref name="authorinformation"/>
+      </optional>
+      <optional>
+        <ref name="publisherinformation"/>
+      </optional>
+      <optional>
+        <ref name="bookid"/>
+      </optional>
+      <optional>
+        <ref name="bookrights"/>
+      </optional>
+    </element>
+  </define>
+  <define name="bookowner">
+    <element name="bookowner">
+      <ref name="organization"/>
+    </element>
+  </define>
+  <define name="bookpartno">
+    <element name="bookpartno">
+      <text/>
+    </element>
+  </define>
+  <define name="bookrestriction">
+    <element name="bookrestriction">
+      <attribute name="type">
+        <choice>
+          <value>AllRightsReserved</value>
+        </choice>
+      </attribute>
+    </element>
+  </define>
+  <define name="bookrights">
+    <element name="bookrights">
+      <ref name="copyrfirst"/>
+      <optional>
+        <ref name="copyrlast"/>
+      </optional>
+      <ref name="bookowner"/>
+      <optional>
+        <ref name="bookrestriction"/>
+      </optional>
+    </element>
+  </define>
+  <define name="booktitle">
+    <element name="booktitle">
+      <optional>
+        <ref name="booklibrary"/>
+      </optional>
+      <ref name="mainbooktitle"/>
+      <optional>
+        <ref name="booktitlealt"/>
+      </optional>
+    </element>
+  </define>
+  <define name="booktitlealt">
+    <element name="booktitlealt">
+      <text/>
+    </element>
+  </define>
+  <define name="brand">
+    <element name="brand">
+      <text/>
+    </element>
+  </define>
+  <define name="category">
+    <element name="category">
+      <text/>
+    </element>
+  </define>
+  <define name="chapter">
+    <element name="chapter">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+      <ref name="topicmeta"/>
+      <zeroOrMore>
+        <choice>
+          <ref name="topicref"/>
+          <ref name="mapref"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="cite">
+    <element name="cite">
+      <text/>
+    </element>
+  </define>
+  <define name="codeph">
+    <element name="codeph">
+      <text/>
+    </element>
+  </define>
+  <define name="common.inline">
+    <choice>
+      <ref name="xref"/>
+      <ref name="common.inline.noxref"/>
+    </choice>
+  </define>
+  <define name="common.inline.noxref">
+    <choice>
+      <ref name="uicontrol"/>
+      <ref name="filepath"/>
+      <ref name="menucascade"/>
+      <ref name="wintitle"/>
+      <ref name="codeph"/>
+      <ref name="varname"/>
+      <ref name="b"/>
+      <ref name="i"/>
+      <ref name="cite"/>
+      <ref name="term"/>
+      <ref name="ph"/>
+    </choice>
+  </define>
+  <define name="completed">
+    <element name="completed">
+      <ref name="month"/>
+      <ref name="day"/>
+      <ref name="year"/>
+    </element>
+  </define>
+  <define name="component">
+    <element name="component">
+      <text/>
+    </element>
+  </define>
+  <define name="contactnumber">
+    <element name="contactnumber">
+      <text/>
+    </element>
+  </define>
+  <define name="contactnumbers">
+    <element name="contactnumbers">
+      <oneOrMore>
+        <ref name="contactnumber"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="copyrfirst">
+    <element name="copyrfirst">
+      <ref name="year"/>
+    </element>
+  </define>
+  <define name="copyrlast">
+    <element name="copyrlast">
+      <ref name="year"/>
+    </element>
+  </define>
+  <define name="country">
+    <element name="country">
+      <text/>
+    </element>
+  </define>
+  <define name="day">
+    <element name="day">
+      <text/>
+    </element>
+  </define>
+  <define name="featnum">
+    <element name="featnum">
+      <text/>
+    </element>
+  </define>
+  <define name="figurelist">
+    <element name="figurelist">
+      <empty/>
+    </element>
+  </define>
+  <define name="filepath">
+    <element name="filepath">
+      <text/>
+    </element>
+  </define>
+  <define name="frontmatter">
+    <element name="frontmatter">
+      <optional>
+        <ref name="notices"/>
+      </optional>
+      <optional>
+        <ref name="preface"/>
+      </optional>
+      <optional>
+        <ref name="booklists"/>
+      </optional>
+    </element>
+  </define>
+  <define name="glossarylist">
+    <element name="glossarylist">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+    </element>
+  </define>
+  <define name="i">
+    <element name="i">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline.noxref"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="id-atts">
+    <optional>
+      <attribute name="id">
+        <data type="ID"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="index-see">
+    <element name="index-see">
+      <text/>
+    </element>
+  </define>
+  <define name="index-see-also">
+    <element name="index-see-also">
+      <text/>
+    </element>
+  </define>
+  <define name="indexlist">
+    <element name="indexlist">
+      <empty/>
+    </element>
+  </define>
+  <define name="indexterm">
+    <element name="indexterm">
+      <mixed>
+        <zeroOrMore>
+          <choice>
+            <ref name="indexterm"/>
+            <ref name="index-see"/>
+            <ref name="index-see-also"/>
+          </choice>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="keyword">
+    <element name="keyword">
+      <text/>
+    </element>
+  </define>
+  <define name="keywords">
+    <element name="keywords">
+      <oneOrMore>
+        <choice>
+          <ref name="keyword"/>
+          <ref name="indexterm"/>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="lang-atts">
+    <optional>
+      <attribute name="xml:lang">
+        <data type="language"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="locality">
+    <element name="locality">
+      <ref name="localityname"/>
+      <ref name="postalcode"/>
+    </element>
+  </define>
+  <define name="localityname">
+    <element name="localityname">
+      <text/>
+    </element>
+  </define>
+  <define name="mainbooktitle">
+    <element name="mainbooktitle">
+      <text/>
+    </element>
+  </define>
+  <define name="mapref">
+    <element name="mapref">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+      <optional>
+        <attribute name="format">
+          <value>ditamap</value>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+  <define name="menucascade">
+    <element name="menucascade">
+      <oneOrMore>
+        <ref name="uicontrol"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="month">
+    <element name="month">
+      <text/>
+    </element>
+  </define>
+  <define name="namedetails">
+    <element name="namedetails">
+      <ref name="organizationnamedetails"/>
+    </element>
+  </define>
+  <define name="navtitle">
+    <element name="navtitle">
+      <text/>
+    </element>
+  </define>
+  <define name="notices">
+    <element name="notices">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+      <optional>
+        <attribute name="toc">
+          <value>no</value>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+  <define name="organization">
+    <element name="organization">
+      <text/>
+    </element>
+  </define>
+  <define name="organizationinfo">
+    <element name="organizationinfo">
+      <optional>
+        <ref name="namedetails"/>
+      </optional>
+      <optional>
+        <ref name="addressdetails"/>
+      </optional>
+      <optional>
+        <ref name="contactnumbers"/>
+      </optional>
+      <optional>
+        <ref name="urls"/>
+      </optional>
+    </element>
+  </define>
+  <define name="organizationname">
+    <element name="organizationname">
+      <text/>
+    </element>
+  </define>
+  <define name="organizationnamedetails">
+    <element name="organizationnamedetails">
+      <ref name="organizationname"/>
+    </element>
+  </define>
+  <define name="ph">
+    <element name="ph">
+      <ref name="id-atts"/>
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="platform">
+    <element name="platform">
+      <text/>
+    </element>
+  </define>
+  <define name="postalcode">
+    <element name="postalcode">
+      <text/>
+    </element>
+  </define>
+  <define name="preface">
+    <element name="preface">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+    </element>
+  </define>
+  <define name="printlocation">
+    <element name="printlocation">
+      <text/>
+    </element>
+  </define>
+  <define name="prodinfo">
+    <element name="prodinfo">
+      <ref name="prodname"/>
+      <ref name="vrmlist"/>
+      <optional>
+        <ref name="brand"/>
+      </optional>
+      <optional>
+        <ref name="component"/>
+      </optional>
+      <optional>
+        <ref name="featnum"/>
+      </optional>
+      <optional>
+        <ref name="platform"/>
+      </optional>
+      <optional>
+        <ref name="prognum"/>
+      </optional>
+      <optional>
+        <ref name="series"/>
+      </optional>
+    </element>
+  </define>
+  <define name="prodname">
+    <element name="prodname">
+      <text/>
+    </element>
+  </define>
+  <define name="prognum">
+    <element name="prognum">
+      <text/>
+    </element>
+  </define>
+  <define name="published">
+    <element name="published">
+      <ref name="completed"/>
+    </element>
+  </define>
+  <define name="publisherinformation">
+    <element name="publisherinformation">
+      <optional>
+        <ref name="organization"/>
+      </optional>
+      <optional>
+        <ref name="printlocation"/>
+      </optional>
+      <optional>
+        <ref name="published"/>
+      </optional>
+    </element>
+  </define>
+  <define name="relcell">
+    <element name="relcell">
+      <zeroOrMore>
+        <ref name="topicref"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="relcolspec">
+    <element name="relcolspec">
+      <optional>
+        <attribute name="type">
+          <data type="string"/>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+  <define name="relheader">
+    <element name="relheader">
+      <oneOrMore>
+        <ref name="relcolspec"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="relrow">
+    <element name="relrow">
+      <oneOrMore>
+        <ref name="relcell"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="reltable">
+    <element name="reltable">
+      <optional>
+        <ref name="relheader"/>
+      </optional>
+      <oneOrMore>
+        <ref name="relrow"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="series">
+    <element name="series">
+      <text/>
+    </element>
+  </define>
+  <define name="shortdesc">
+    <element name="shortdesc">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline.noxref"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="tablelist">
+    <element name="tablelist">
+      <empty/>
+    </element>
+  </define>
+  <define name="term">
+    <element name="term">
+      <optional>
+        <attribute name="keyref">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <text/>
+    </element>
+  </define>
+  <define name="thoroughfare">
+    <element name="thoroughfare">
+      <text/>
+    </element>
+  </define>
+  <define name="toc">
+    <element name="toc">
+      <empty/>
+    </element>
+  </define>
+  <define name="topicmeta">
+    <element name="topicmeta">
+      <ref name="navtitle"/>
+      <zeroOrMore>
+        <choice>
+          <ref name="shortdesc"/>
+          <ref name="audience"/>
+          <ref name="category"/>
+          <ref name="keywords"/>
+          <ref name="prodinfo"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="topicref">
+    <element name="topicref">
+      <optional>
+        <attribute name="href">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="format">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="type">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="toc">
+          <choice>
+            <value>yes</value>
+            <value>no</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <ref name="topicmeta"/>
+      </optional>
+      <zeroOrMore>
+        <ref name="topicref"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="uicontrol">
+    <element name="uicontrol">
+      <mixed>
+        <zeroOrMore>
+          <ref name="common.inline.noxref"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  <define name="url">
+    <element name="url">
+      <text/>
+    </element>
+  </define>
+  <define name="urls">
+    <element name="urls">
+      <oneOrMore>
+        <ref name="url"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="varname">
+    <element name="varname">
+      <text/>
+    </element>
+  </define>
+  <define name="vrm">
+    <element name="vrm">
+      <attribute name="version">
+        <data type="string"/>
+      </attribute>
+      <optional>
+        <attribute name="release">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="modification">
+          <data type="string"/>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+  <define name="vrmlist">
+    <element name="vrmlist">
+      <oneOrMore>
+        <ref name="vrm"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="wintitle">
+    <element name="wintitle">
+      <text/>
+    </element>
+  </define>
+  <define name="xref">
+    <element name="xref">
+      <attribute name="href">
+        <data type="string"/>
+      </attribute>
+      <optional>
+        <attribute name="type">
+          <choice>
+            <value>fig</value>
+            <value>table</value>
+            <value>li</value>
+            <value>fn</value>
+            <value>section</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="scope">
+          <choice>
+            <value>local</value>
+            <value>external</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="format">
+          <data type="string"/>
+        </attribute>
+      </optional>
+      <text/>
+    </element>
+  </define>
+  <define name="year">
+    <element name="year">
+      <text/>
+    </element>
+  </define>
+</grammar>

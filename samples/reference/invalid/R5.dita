@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r5_invalid_order">
+  <title>Misplaced Refbody</title>
+  <shortdesc>Shortdesc is present.</shortdesc>
+  <refbody>
+    <p>Refbody is misplaced before prolog, violating R5.</p>
+  </refbody>
+  <prolog><author>Test</author></prolog>
+</reference>

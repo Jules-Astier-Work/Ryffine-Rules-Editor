@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <include href="../common/ryffineCommonElements.rng"/>
+  
+  <start>
+    <ref name="concept"/>
+  </start>
+  
+  <define name="concept">
+    <element name="concept">
+      <ref name="id-atts"/>
+      <ref name="lang-atts"/>
+      <ref name="title"/>
+      <ref name="shortdesc"/>
+      <ref name="prolog"/>
+      <ref name="conbody"/>
+    </element>
+  </define>
+  
+  <define name="conbody">
+    <element name="conbody">
+      <choice>
+        <!-- Case 1: Only loose blocks -->
+        <oneOrMore>
+          <ref name="conbody.loose-blocks"/>
+        </oneOrMore>
+        <!-- Case 2: Only structural blocks -->
+        <oneOrMore>
+          <ref name="conbody.structural-blocks"/>
+        </oneOrMore>
+        <!-- Case 3: Loose blocks followed by structural blocks -->
+        <group>
+          <oneOrMore>
+            <ref name="conbody.loose-blocks"/>
+          </oneOrMore>
+          <oneOrMore>
+            <ref name="conbody.structural-blocks"/>
+          </oneOrMore>
+        </group>
+      </choice>
+    </element>
+  </define>
+
+  <define name="conbody.loose-blocks">
+    <choice>
+      <ref name="p"/>
+      <ref name="ul"/>
+      <ref name="ol"/>
+      <ref name="dl"/>
+      <ref name="note"/>
+      <ref name="fig"/>
+      <ref name="table"/>
+      <ref name="codeblock"/>
+    </choice>
+  </define>
+
+  <define name="conbody.structural-blocks">
+    <choice>
+      <ref name="section"/>
+      <ref name="example"/>
+    </choice>
+  </define>
+  
+  <define name="example">
+    <element name="example">
+      <ref name="id-atts"/>
+      <optional>
+        <ref name="title"/>
+      </optional>
+      <oneOrMore>
+        <choice>
+          <ref name="p"/>
+          <ref name="ul"/>
+          <ref name="ol"/>
+          <ref name="dl"/>
+          <ref name="note"/>
+          <ref name="fig"/>
+          <ref name="table"/>
+          <ref name="codeblock"/>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  
+</grammar>

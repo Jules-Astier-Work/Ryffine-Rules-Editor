@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+  <title>Map Title</title>
+  <topicref href="initial.dita" collection-type="family"/>
+  <topicref href="another.dita" collection-type="sequence"/>
+  <topicgroup collection-type="family">
+    <topicref href="grouped1.dita" collection-type="family"/>
+  </topicgroup>
+  <mapref href="submap.ditamap"/>
+  <glossref href="glossentry.dita"/>
+</map>

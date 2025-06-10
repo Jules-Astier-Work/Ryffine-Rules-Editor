@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r4_val">
+  <title>R4 Valid Title</title>
+  <shortdesc>This concept correctly includes a prolog.</shortdesc>
+  <prolog/>
+  <conbody>
+    <p>Content for a concept with title, shortdesc, and prolog.</p>
+  </conbody>
+</concept>

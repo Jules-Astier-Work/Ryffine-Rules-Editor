@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r8_val">
+  <title>R8 Valid Section</title>
+  <shortdesc>Section with a title.</shortdesc>
+  <prolog/>
+  <conbody>
+    <section id="s1">
+      <title>Section Title</title>
+      <p>This section correctly begins with a title element.</p>
+    </section>
+  </conbody>
+</concept>

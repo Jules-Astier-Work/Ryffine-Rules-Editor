@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wrongroot>
+  <title>T</title>
+  <prolog/>
+  <troublebody>
+    <troubleSolution>
+      <cause><title>C</title><p>Cause desc</p></cause>
+      <remedy><title>R</title><steps-informal><p>Do this.</p></steps-informal></remedy>
+    </troubleSolution>
+  </troublebody>
+</wrongroot>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r2_val">
+  <title>R2 Valid Title</title>
+  <shortdesc>This concept correctly includes a title element.</shortdesc>
+  <prolog/>
+  <conbody>
+    <p>Content for a concept with a title.</p>
+  </conbody>
+</concept>

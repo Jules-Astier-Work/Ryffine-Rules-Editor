@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r4_invalid_missing_prolog">
+  <title>Missing Prolog</title>
+  <shortdesc>Shortdesc is present.</shortdesc>
+  <!-- <prolog><author>Test</author></prolog> -->
+  <refbody>
+    <p>Prolog is missing, violating R4.</p>
+  </refbody>
+</reference>

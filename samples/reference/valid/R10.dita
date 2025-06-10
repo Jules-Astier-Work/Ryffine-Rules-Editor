@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r10_valid">
+  <title>Example Title Optionality (R10)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <example id="ex_with_title_r10">
+      <title>Example With A Title</title>
+      <p>This example demonstrates the optional title (R10 satisfied).</p>
+    </example>
+    <example id="ex_without_title_r10">
+      <p>This example does not have a title, which is also valid per R10.</p>
+    </example>
+  </refbody>
+</reference>

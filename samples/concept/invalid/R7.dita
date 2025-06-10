@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r7_inv">
+  <title>R7 Invalid Loose Block</title>
+  <shortdesc>Loose block after structural, not nested.</shortdesc>
+  <prolog/>
+  <conbody>
+    <example>
+      <title>Example Title</title>
+      <p>Content within example.</p>
+    </example>
+    <p>A loose paragraph after an example, not nested in a subsequent section/example.</p>
+  </conbody>
+</concept>

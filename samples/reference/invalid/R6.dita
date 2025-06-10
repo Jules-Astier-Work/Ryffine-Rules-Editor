@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference id="ref_r6_invalid">
+  <title>Invalid Order in Refbody (R6)</title>
+  <shortdesc>Short description.</shortdesc>
+  <prolog><author>Test</author></prolog>
+  <refbody>
+    <section id="sec1_r6_invalid">
+      <title>Section One</title>
+      <p>Content within section.</p>
+    </section>
+    <p>This loose paragraph appears after a section, violating R6.</p>
+    <ul><li><p>Loose list item after section.</p></li></ul>
+  </refbody>
+</reference>

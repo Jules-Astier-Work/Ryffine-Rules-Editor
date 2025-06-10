@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+  <title>Map Title</title>
+  <topicref href="parent.dita" collection-type="family">
+    <p>This text is not allowed directly in topicref.</p>
+  </topicref>
+</map>

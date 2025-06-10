@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concept id="c_r1_val">
+  <title>R1 Valid Title</title>
+  <shortdesc>This document correctly uses 'concept' as root.</shortdesc>
+  <prolog/>
+  <conbody>
+    <p>Some content.</p>
+  </conbody>
+</concept>
